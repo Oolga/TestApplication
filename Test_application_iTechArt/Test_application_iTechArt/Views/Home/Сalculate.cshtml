@@ -1,0 +1,60 @@
+﻿@using Test_application_iTechArt.Models
+@{
+    ViewBag.Title = "Сalculate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br>
+<div class="row">
+    <div class="col-md-4">
+        <label>Depot</label>
+        @if (ViewBag.depots.Count != 0)
+        { 
+            <select id="DepotId" class="form-control">
+                @foreach (var depot in ViewBag.depots)
+                {
+                    <option value="@depot.DepotId">@depot.DepotName</option>
+
+                }
+            </select>
+        }
+    </div>
+    <div class="col-md-4">
+        @if (ViewBag.drugTypes.Count != 0)
+        {
+            <div id="DrugTypes">
+                @foreach (var drugType in ViewBag.drugTypes)
+                {
+                    <label>@drugType.DrugTypeName</label>
+                    <input id="@drugType.DrugTypeId" value="" class="form-control" />
+                }
+            </div>
+        }
+        else
+        {
+            <label>No drug types</label>
+        }
+    </div>
+    <div class="col-md-4">
+        <br>
+        <button id="calculate" class="btn btn-success">Calculate</button>
+    </div>
+</div>
+<br>
+<div id="results"></div>
+
+    <script language="javascript" type="text/javascript">
+        $('button#calculate').click(function () {
+            var count = @Html.Raw(Json.Encode(@ViewBag.drugTypes.Count));
+            var depot=$('#DepotId').val();
+            var numbers = [];
+
+            for (var i = 1; i <= count; i++)
+            {
+                numbers.push($('#' + i).val());
+            }
+
+            var data={depotId:depot, numbers:numbers};
+
+            $('#results').load('UnitsSearch?'+ $.param(data, true));
+        });
+    </script>
