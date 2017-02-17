@@ -3,26 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Test_application_iTechArt.Models;
+using Test_application_iTechArt.DAL;
+
 
 namespace Test_application_iTechArt.Controllers
 {
     public class HomeController : Controller
     {
-        Entities1 db = new Entities1();
 
         public ActionResult UnitsSearch(int depotId, List<int> numbers)
         {
 
-            List<DrugUnit> units = new List<DrugUnit>();
+            List<DAL.DrugUnit> units = new List<DAL.DrugUnit>();
             try
             {
+                var drugUnitRepository = new DrugUnitRepository();
+
                 for (int i = 0; i < numbers.Count(); i++)
                 {
                     for (int j = 0; j < numbers.ElementAt(i); j++)
                     {
-                        if (j < (db.DrugUnit.Where(x => x.DepotId == depotId && x.DrugTypeId == (i + 1))).ToList<DrugUnit>().Count)
-                            units.Add((db.DrugUnit.Where(x => x.DepotId == depotId && x.DrugTypeId == (i + 1))).ToList<DrugUnit>().OrderBy(x=>x.PickNumber).ElementAt(j));
+                        if (j < (drugUnitRepository.GetAll().Where(x => x.DepotId == depotId && x.DrugTypeId == (i + 1))).ToList<DAL.DrugUnit>().Count)
+                            units.Add((drugUnitRepository.GetAll().Where(x => x.DepotId == depotId && x.DrugTypeId == (i + 1))).ToList<DAL.DrugUnit>().OrderBy(x=>x.PickNumber).ElementAt(j));
                     }
                 }
 
@@ -31,7 +33,7 @@ namespace Test_application_iTechArt.Controllers
             }
             catch (Exception ex)
             {
-                return View("Error", new HandleErrorInfo(ex, "Hello", "UnitsSearch"));
+                return View("Error", new HandleErrorInfo(ex, "Home", "UnitsSearch"));
             }
         }
 
@@ -39,14 +41,16 @@ namespace Test_application_iTechArt.Controllers
         {
             try
             {
-                List<DrugUnit> units = db.DrugUnit.Where(x => x.DepotId == depotId && x.DrugTypeId == drugTypeId).ToList<DrugUnit>();
+                var drugUnitRepository = new DrugUnitRepository();
+
+                List<DAL.DrugUnit> units = drugUnitRepository.GetAll().Where(x => x.DepotId == depotId && x.DrugTypeId == drugTypeId).ToList<DAL.DrugUnit>();
                 units.ForEach(x => x.DrugType.Weight = Math.Round(x.DrugType.Weight / 2.2, 2));
 
                 return PartialView(units);
             }
             catch (Exception ex)
             {
-                return View("Error", new HandleErrorInfo(ex, "Hello", "ShowWeight"));
+                return View("Error", new HandleErrorInfo(ex, "Home", "ShowWeight"));
             }
         }
     
@@ -55,14 +59,17 @@ namespace Test_application_iTechArt.Controllers
         {
             try
             {
-                ViewBag.depots = db.Depot.ToList<Depot>();
-                ViewBag.drugTypes = db.DrugType.ToList<DrugType>();
+                var depotRepository = new DepotRepository();
+                var drugTypeRepository = new DrugTypeRepository();
+
+                ViewBag.depots = depotRepository.GetAll();
+                ViewBag.drugTypes = drugTypeRepository.GetAll();
 
                 return View();
             }
             catch (Exception ex)
             {
-                return View("Error", new HandleErrorInfo(ex, "Hello", "Сalculate"));
+                return View("Error", new HandleErrorInfo(ex, "Home", "Сalculate"));
             }
 
         }
@@ -71,14 +78,17 @@ namespace Test_application_iTechArt.Controllers
         {
             try
             {
-                ViewBag.depots = db.Depot.ToList<Depot>();
-                ViewBag.drugUnits = db.DrugUnit.ToList<DrugUnit>();
+                var depotRepository = new DepotRepository();
+                var drugUnitRepository = new DrugUnitRepository();
+
+                ViewBag.depots = depotRepository.GetAll();
+                ViewBag.drugUnits =drugUnitRepository.GetAll();
 
                 return View();
             }
             catch (Exception ex)
             {
-                return View("Error", new HandleErrorInfo(ex, "Hello", "Depots"));
+                return View("Error", new HandleErrorInfo(ex, "Home", "Depots"));
             }
         }
 
@@ -86,13 +96,16 @@ namespace Test_application_iTechArt.Controllers
         {
             try
             {
-                ViewBag.depots = db.Depot.ToList<Depot>();
-                ViewBag.drugUnits = db.DrugUnit.ToList<DrugUnit>();
+                var depotRepository = new DepotRepository();
+                var drugUnitRepository = new DrugUnitRepository();
+
+                ViewBag.depots = depotRepository.GetAll();
+                ViewBag.drugUnits = drugUnitRepository.GetAll();
                 return View();
             }
             catch (Exception ex)
             {
-                return View("Error", new HandleErrorInfo(ex, "Hello", "DrugUnitToDepot"));
+                return View("Error", new HandleErrorInfo(ex, "Home", "DrugUnitToDepot"));
             }
         }
 
@@ -100,15 +113,17 @@ namespace Test_application_iTechArt.Controllers
         {
             try
             {
-                DrugUnit unit = db.DrugUnit.Where(x => x.DrugUnitId == DrugUnitId).First();
+                var drugUnitRepository = new DrugUnitRepository();
+
+                DAL.DrugUnit unit = drugUnitRepository.GetAll().Where(x => x.DrugUnitId == DrugUnitId).First();
                 unit.DepotId = DepotId;
-                db.SaveChanges();
+                drugUnitRepository.Update(unit);
 
                 return Redirect("MessageWindow?message=Changes saved.");
             }
             catch (Exception ex)
             {
-                return View("Error", new HandleErrorInfo(ex, "Hello", "UpdateDrugUnitToDepot"));
+                return View("Error", new HandleErrorInfo(ex, "Home", "UpdateDrugUnitToDepot"));
             }
         }
 
@@ -122,13 +137,16 @@ namespace Test_application_iTechArt.Controllers
         {
             try
             {
-                ViewBag.drugTypes = db.DrugType.ToList<DrugType>();
-                ViewBag.depots = db.Depot.ToList<Depot>();
+                var drugTypeRepository = new DrugTypeRepository();
+                var depotRepository = new DepotRepository();
+
+                ViewBag.drugTypes =drugTypeRepository.GetAll();
+                ViewBag.depots = depotRepository.GetAll();
                 return View();
             }
             catch (Exception ex)
             {
-                return View("Error", new HandleErrorInfo(ex, "Hello", "Weight"));
+                return View("Error", new HandleErrorInfo(ex, "Home", "Weight"));
             }
         }
 

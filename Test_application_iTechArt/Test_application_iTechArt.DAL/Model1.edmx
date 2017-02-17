@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="olga.mikholenkoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="CountryId" />
+          </Key>
+          <Property Name="CountryId" Type="int" Nullable="false" />
+          <Property Name="CountryName" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Depot">
+          <Key>
+            <PropertyRef Name="DepotId" />
+          </Key>
+          <Property Name="DepotId" Type="int" Nullable="false" />
+          <Property Name="DepotName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CountryId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DrugType">
+          <Key>
+            <PropertyRef Name="DrugTypeId" />
+          </Key>
+          <Property Name="DrugTypeId" Type="int" Nullable="false" />
+          <Property Name="DrugTypeName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Weight" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DrugUnit">
+          <Key>
+            <PropertyRef Name="DrugUnitId" />
+          </Key>
+          <Property Name="DrugUnitId" Type="int" Nullable="false" />
+          <Property Name="PickNumber" Type="int" />
+          <Property Name="DepotId" Type="int" />
+          <Property Name="DrugTypeId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Depot__CountryId__33D4B598">
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="Depot" Type="Self.Depot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="Depot">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DrugUnit__DepotI__5CD6CB2B">
+          <End Role="Depot" Type="Self.Depot" Multiplicity="0..1" />
+          <End Role="DrugUnit" Type="Self.DrugUnit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Depot">
+              <PropertyRef Name="DepotId" />
+            </Principal>
+            <Dependent Role="DrugUnit">
+              <PropertyRef Name="DepotId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DrugUnit__DrugTy__5DCAEF64">
+          <End Role="DrugType" Type="Self.DrugType" Multiplicity="1" />
+          <End Role="DrugUnit" Type="Self.DrugUnit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DrugType">
+              <PropertyRef Name="DrugTypeId" />
+            </Principal>
+            <Dependent Role="DrugUnit">
+              <PropertyRef Name="DrugTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="olgamikholenkoModelStoreContainer">
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Depot" EntityType="Self.Depot" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DrugType" EntityType="Self.DrugType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DrugUnit" EntityType="Self.DrugUnit" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Depot__CountryId__33D4B598" Association="Self.FK__Depot__CountryId__33D4B598">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Depot" EntitySet="Depot" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DrugUnit__DepotI__5CD6CB2B" Association="Self.FK__DrugUnit__DepotI__5CD6CB2B">
+            <End Role="Depot" EntitySet="Depot" />
+            <End Role="DrugUnit" EntitySet="DrugUnit" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DrugUnit__DrugTy__5DCAEF64" Association="Self.FK__DrugUnit__DrugTy__5DCAEF64">
+            <End Role="DrugType" EntitySet="DrugType" />
+            <End Role="DrugUnit" EntitySet="DrugUnit" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="olga.mikholenkoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="CountryId" />
+          </Key>
+          <Property Name="CountryId" Type="Int32" Nullable="false" />
+          <Property Name="CountryName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Depot" Relationship="Self.FK__Depot__CountryId__33D4B598" FromRole="Country" ToRole="Depot" />
+        </EntityType>
+        <EntityType Name="Depot">
+          <Key>
+            <PropertyRef Name="DepotId" />
+          </Key>
+          <Property Name="DepotId" Type="Int32" Nullable="false" />
+          <Property Name="DepotName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CountryId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Country" Relationship="Self.FK__Depot__CountryId__33D4B598" FromRole="Depot" ToRole="Country" />
+          <NavigationProperty Name="DrugUnit" Relationship="Self.FK__DrugUnit__DepotI__5CD6CB2B" FromRole="Depot" ToRole="DrugUnit" />
+        </EntityType>
+        <EntityType Name="DrugType">
+          <Key>
+            <PropertyRef Name="DrugTypeId" />
+          </Key>
+          <Property Name="DrugTypeId" Type="Int32" Nullable="false" />
+          <Property Name="DrugTypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Weight" Type="Double" Nullable="false" />
+          <NavigationProperty Name="DrugUnit" Relationship="Self.FK__DrugUnit__DrugTy__5DCAEF64" FromRole="DrugType" ToRole="DrugUnit" />
+        </EntityType>
+        <EntityType Name="DrugUnit">
+          <Key>
+            <PropertyRef Name="DrugUnitId" />
+          </Key>
+          <Property Name="DrugUnitId" Type="Int32" Nullable="false" />
+          <Property Name="PickNumber" Type="Int32" />
+          <Property Name="DepotId" Type="Int32" />
+          <Property Name="DrugTypeId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Depot" Relationship="Self.FK__DrugUnit__DepotI__5CD6CB2B" FromRole="DrugUnit" ToRole="Depot" />
+          <NavigationProperty Name="DrugType" Relationship="Self.FK__DrugUnit__DrugTy__5DCAEF64" FromRole="DrugUnit" ToRole="DrugType" />
+        </EntityType>
+        <Association Name="FK__Depot__CountryId__33D4B598">
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="Depot" Type="Self.Depot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="Depot">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DrugUnit__DepotI__5CD6CB2B">
+          <End Role="Depot" Type="Self.Depot" Multiplicity="0..1" />
+          <End Role="DrugUnit" Type="Self.DrugUnit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Depot">
+              <PropertyRef Name="DepotId" />
+            </Principal>
+            <Dependent Role="DrugUnit">
+              <PropertyRef Name="DepotId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DrugUnit__DrugTy__5DCAEF64">
+          <End Role="DrugType" Type="Self.DrugType" Multiplicity="1" />
+          <End Role="DrugUnit" Type="Self.DrugUnit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DrugType">
+              <PropertyRef Name="DrugTypeId" />
+            </Principal>
+            <Dependent Role="DrugUnit">
+              <PropertyRef Name="DrugTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Country" EntityType="Self.Country" />
+          <EntitySet Name="Depot" EntityType="Self.Depot" />
+          <EntitySet Name="DrugType" EntityType="Self.DrugType" />
+          <EntitySet Name="DrugUnit" EntityType="Self.DrugUnit" />
+          <AssociationSet Name="FK__Depot__CountryId__33D4B598" Association="Self.FK__Depot__CountryId__33D4B598">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Depot" EntitySet="Depot" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DrugUnit__DepotI__5CD6CB2B" Association="Self.FK__DrugUnit__DepotI__5CD6CB2B">
+            <End Role="Depot" EntitySet="Depot" />
+            <End Role="DrugUnit" EntitySet="DrugUnit" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DrugUnit__DrugTy__5DCAEF64" Association="Self.FK__DrugUnit__DrugTy__5DCAEF64">
+            <End Role="DrugType" EntitySet="DrugType" />
+            <End Role="DrugUnit" EntitySet="DrugUnit" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="olgamikholenkoModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Country">
+            <EntityTypeMapping TypeName="olga.mikholenkoModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Depot">
+            <EntityTypeMapping TypeName="olga.mikholenkoModel.Depot">
+              <MappingFragment StoreEntitySet="Depot">
+                <ScalarProperty Name="DepotId" ColumnName="DepotId" />
+                <ScalarProperty Name="DepotName" ColumnName="DepotName" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DrugType">
+            <EntityTypeMapping TypeName="olga.mikholenkoModel.DrugType">
+              <MappingFragment StoreEntitySet="DrugType">
+                <ScalarProperty Name="DrugTypeId" ColumnName="DrugTypeId" />
+                <ScalarProperty Name="DrugTypeName" ColumnName="DrugTypeName" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DrugUnit">
+            <EntityTypeMapping TypeName="olga.mikholenkoModel.DrugUnit">
+              <MappingFragment StoreEntitySet="DrugUnit">
+                <ScalarProperty Name="DrugUnitId" ColumnName="DrugUnitId" />
+                <ScalarProperty Name="PickNumber" ColumnName="PickNumber" />
+                <ScalarProperty Name="DepotId" ColumnName="DepotId" />
+                <ScalarProperty Name="DrugTypeId" ColumnName="DrugTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

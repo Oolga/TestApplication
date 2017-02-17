@@ -2,38 +2,38 @@
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="MikholenkoOlgaModelStoreContainer" CdmEntityContainer="Entities1">
     <EntitySetMapping Name="Country">
-      <EntityTypeMapping TypeName="Mikholenko.OlgaModel.Country">
+      <EntityTypeMapping TypeName="IsTypeOf(Mikholenko.OlgaModel.Country)">
         <MappingFragment StoreEntitySet="Country">
-          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
           <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Depot">
-      <EntityTypeMapping TypeName="Mikholenko.OlgaModel.Depot">
+      <EntityTypeMapping TypeName="IsTypeOf(Mikholenko.OlgaModel.Depot)">
         <MappingFragment StoreEntitySet="Depot">
-          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
-          <ScalarProperty Name="DepotName" ColumnName="DepotName" />
           <ScalarProperty Name="DepotId" ColumnName="DepotId" />
+          <ScalarProperty Name="DepotName" ColumnName="DepotName" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DrugType">
-      <EntityTypeMapping TypeName="Mikholenko.OlgaModel.DrugType">
+      <EntityTypeMapping TypeName="IsTypeOf(Mikholenko.OlgaModel.DrugType)">
         <MappingFragment StoreEntitySet="DrugType">
-          <ScalarProperty Name="Weight" ColumnName="Weight" />
-          <ScalarProperty Name="DrugTypeName" ColumnName="DrugTypeName" />
           <ScalarProperty Name="DrugTypeId" ColumnName="DrugTypeId" />
+          <ScalarProperty Name="DrugTypeName" ColumnName="DrugTypeName" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DrugUnit">
-      <EntityTypeMapping TypeName="Mikholenko.OlgaModel.DrugUnit">
+      <EntityTypeMapping TypeName="IsTypeOf(Mikholenko.OlgaModel.DrugUnit)">
         <MappingFragment StoreEntitySet="DrugUnit">
-          <ScalarProperty Name="DrugTypeId" ColumnName="DrugTypeId" />
-          <ScalarProperty Name="DepotId" ColumnName="DepotId" />
-          <ScalarProperty Name="PickNumber" ColumnName="PickNumber" />
           <ScalarProperty Name="DrugUnitId" ColumnName="DrugUnitId" />
+          <ScalarProperty Name="PickNumber" ColumnName="PickNumber" />
+          <ScalarProperty Name="DepotId" ColumnName="DepotId" />
+          <ScalarProperty Name="DrugTypeId" ColumnName="DrugTypeId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
