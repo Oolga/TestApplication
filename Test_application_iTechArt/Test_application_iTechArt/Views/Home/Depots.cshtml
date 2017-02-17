@@ -1,4 +1,4 @@
-﻿
+﻿@using Test_application_iTechArt.DAL.Models
 @{
     ViewBag.Title = "Deports";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -18,12 +18,12 @@
     <tbody>
         @if (ViewBag.depots.Count != 0)
         {
-            foreach (var item in ((List<Test_application_iTechArt.DAL.Depot>)ViewBag.depots))
+            foreach (var item in ((List<Depot>)ViewBag.depots))
             {
 
                 if (item.DrugUnit.Count != 0)
                 {
-                    foreach (var unit in (ICollection<Test_application_iTechArt.DAL.DrugUnit>)item.DrugUnit)
+                    foreach (var unit in (ICollection<DrugUnit>)item.DrugUnit)
                     {
                         <tr>
                             <td>@unit.Depot.DepotName</td>

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Test_application_iTechArt.DAL
+namespace Test_application_iTechArt.DAL.Models
 {
     using System;
     using System.Collections.Generic;

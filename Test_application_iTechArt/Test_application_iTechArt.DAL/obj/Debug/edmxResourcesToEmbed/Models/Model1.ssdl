@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="olga.mikholenkoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="int" Nullable="false" />
+    <Property Name="CountryName" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Depot">
+    <Key>
+      <PropertyRef Name="DepotId" />
+    </Key>
+    <Property Name="DepotId" Type="int" Nullable="false" />
+    <Property Name="DepotName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DrugType">
+    <Key>
+      <PropertyRef Name="DrugTypeId" />
+    </Key>
+    <Property Name="DrugTypeId" Type="int" Nullable="false" />
+    <Property Name="DrugTypeName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Weight" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DrugUnit">
+    <Key>
+      <PropertyRef Name="DrugUnitId" />
+    </Key>
+    <Property Name="DrugUnitId" Type="int" Nullable="false" />
+    <Property Name="PickNumber" Type="int" />
+    <Property Name="DepotId" Type="int" />
+    <Property Name="DrugTypeId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Depot__CountryId__33D4B598">
+    <End Role="Country" Type="Self.Country" Multiplicity="1" />
+    <End Role="Depot" Type="Self.Depot" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="Depot">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DrugUnit__DepotI__5CD6CB2B">
+    <End Role="Depot" Type="Self.Depot" Multiplicity="0..1" />
+    <End Role="DrugUnit" Type="Self.DrugUnit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Depot">
+        <PropertyRef Name="DepotId" />
+      </Principal>
+      <Dependent Role="DrugUnit">
+        <PropertyRef Name="DepotId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DrugUnit__DrugTy__5DCAEF64">
+    <End Role="DrugType" Type="Self.DrugType" Multiplicity="1" />
+    <End Role="DrugUnit" Type="Self.DrugUnit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DrugType">
+        <PropertyRef Name="DrugTypeId" />
+      </Principal>
+      <Dependent Role="DrugUnit">
+        <PropertyRef Name="DrugTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="olgamikholenkoModelStoreContainer">
+    <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Depot" EntityType="Self.Depot" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DrugType" EntityType="Self.DrugType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DrugUnit" EntityType="Self.DrugUnit" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Depot__CountryId__33D4B598" Association="Self.FK__Depot__CountryId__33D4B598">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="Depot" EntitySet="Depot" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DrugUnit__DepotI__5CD6CB2B" Association="Self.FK__DrugUnit__DepotI__5CD6CB2B">
+      <End Role="Depot" EntitySet="Depot" />
+      <End Role="DrugUnit" EntitySet="DrugUnit" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DrugUnit__DrugTy__5DCAEF64" Association="Self.FK__DrugUnit__DrugTy__5DCAEF64">
+      <End Role="DrugType" EntitySet="DrugType" />
+      <End Role="DrugUnit" EntitySet="DrugUnit" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

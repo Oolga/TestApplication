@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Test_application_iTechArt.DAL;
-
+using Test_application_iTechArt.DAL.Models;
 
 namespace Test_application_iTechArt.Controllers
 {
@@ -14,7 +13,7 @@ namespace Test_application_iTechArt.Controllers
         public ActionResult UnitsSearch(int depotId, List<int> numbers)
         {
 
-            List<DAL.DrugUnit> units = new List<DAL.DrugUnit>();
+            List<DrugUnit> units = new List<DrugUnit>();
             try
             {
                 var drugUnitRepository = new DrugUnitRepository();
@@ -23,8 +22,8 @@ namespace Test_application_iTechArt.Controllers
                 {
                     for (int j = 0; j < numbers.ElementAt(i); j++)
                     {
-                        if (j < (drugUnitRepository.GetAll().Where(x => x.DepotId == depotId && x.DrugTypeId == (i + 1))).ToList<DAL.DrugUnit>().Count)
-                            units.Add((drugUnitRepository.GetAll().Where(x => x.DepotId == depotId && x.DrugTypeId == (i + 1))).ToList<DAL.DrugUnit>().OrderBy(x=>x.PickNumber).ElementAt(j));
+                        if (j < (drugUnitRepository.GetAll().Where(x => x.DepotId == depotId && x.DrugTypeId == (i + 1))).ToList<DrugUnit>().Count)
+                            units.Add((drugUnitRepository.GetAll().Where(x => x.DepotId == depotId && x.DrugTypeId == (i + 1))).ToList<DrugUnit>().OrderBy(x=>x.PickNumber).ElementAt(j));
                     }
                 }
 
@@ -43,7 +42,7 @@ namespace Test_application_iTechArt.Controllers
             {
                 var drugUnitRepository = new DrugUnitRepository();
 
-                List<DAL.DrugUnit> units = drugUnitRepository.GetAll().Where(x => x.DepotId == depotId && x.DrugTypeId == drugTypeId).ToList<DAL.DrugUnit>();
+                List<DrugUnit> units = drugUnitRepository.GetAll().Where(x => x.DepotId == depotId && x.DrugTypeId == drugTypeId).ToList<DrugUnit>();
                 units.ForEach(x => x.DrugType.Weight = Math.Round(x.DrugType.Weight / 2.2, 2));
 
                 return PartialView(units);
@@ -115,7 +114,7 @@ namespace Test_application_iTechArt.Controllers
             {
                 var drugUnitRepository = new DrugUnitRepository();
 
-                DAL.DrugUnit unit = drugUnitRepository.GetAll().Where(x => x.DrugUnitId == DrugUnitId).First();
+                DrugUnit unit = drugUnitRepository.GetAll().Where(x => x.DrugUnitId == DrugUnitId).First();
                 unit.DepotId = DepotId;
                 drugUnitRepository.Update(unit);
 

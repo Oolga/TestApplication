@@ -7,23 +7,24 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Test_application_iTechArt.DAL
+namespace Test_application_iTechArt.DAL.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class DrugType
+    public partial class Depot
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public DrugType()
+        public Depot()
         {
             this.DrugUnit = new HashSet<DrugUnit>();
         }
     
-        public int DrugTypeId { get; set; }
-        public string DrugTypeName { get; set; }
-        public double Weight { get; set; }
+        public int DepotId { get; set; }
+        public string DepotName { get; set; }
+        public int CountryId { get; set; }
     
+        public virtual Country Country { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DrugUnit> DrugUnit { get; set; }
     }
