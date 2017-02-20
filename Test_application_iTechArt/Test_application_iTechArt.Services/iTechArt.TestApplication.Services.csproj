@@ -45,9 +45,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Test_application_iTechArt.DAL\Test_application_iTechArt.DAL.csproj">
+    <ProjectReference Include="..\Test_application_iTechArt.DAL\iTechArt.TestApplication.DAL.csproj">
       <Project>{366737fa-2360-4cf1-8d82-fd26ee62cd78}</Project>
-      <Name>Test_application_iTechArt.DAL</Name>
+      <Name>iTechArt.TestApplication.DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

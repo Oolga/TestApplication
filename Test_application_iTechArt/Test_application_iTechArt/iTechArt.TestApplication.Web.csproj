@@ -237,13 +237,13 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Test_application_iTechArt.DAL\Test_application_iTechArt.DAL.csproj">
+    <ProjectReference Include="..\Test_application_iTechArt.DAL\iTechArt.TestApplication.DAL.csproj">
       <Project>{366737fa-2360-4cf1-8d82-fd26ee62cd78}</Project>
       <Name>Test_application_iTechArt.DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Test_application_iTechArt.Services\Test_application_iTechArt.Services.csproj">
+    <ProjectReference Include="..\Test_application_iTechArt.Services\iTechArt.TestApplication.Services.csproj">
       <Project>{101030c0-58ec-4e0a-b915-ddaca9958191}</Project>
-      <Name>Test_application_iTechArt.Services</Name>
+      <Name>iTechArt.TestApplication.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

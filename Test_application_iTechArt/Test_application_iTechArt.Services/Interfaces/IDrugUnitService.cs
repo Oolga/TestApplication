@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using Test_application_iTechArt.DAL.Models;
+﻿using iTechArt.TestApplication.DAL.Models;
+using System.Collections.Generic;
 
-namespace Test_application_iTechArt.Services.Interfaces
+namespace iTechArt.TestApplication.Services.Interfaces
 {
 	public interface IDrugUnitService
 	{

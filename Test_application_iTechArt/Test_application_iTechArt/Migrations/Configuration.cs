@@ -1,18 +1,19 @@
-namespace Test_application_iTechArt.Migrations
+namespace iTechArt.TestApplication.Migrations
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
+	using DAL.Models;
+	using System;
+	using System.Data.Entity;
+	using System.Data.Entity.Migrations;
+	using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Test_application_iTechArt.DAL.Models.Entities>
+	internal sealed class Configuration : DbMigrationsConfiguration<Entities>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(Test_application_iTechArt.DAL.Models.Entities context)
+        protected override void Seed(iTechArt.TestApplication.DAL.Models.Entities context)
         {
             //  This method will be called after migrating to the latest version.
 

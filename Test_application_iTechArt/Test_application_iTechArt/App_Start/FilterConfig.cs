@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace Test_application_iTechArt
+namespace iTechArtTestApplication
 {
     public class FilterConfig
     {

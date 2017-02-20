@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Test_application_iTechArt.DAL.Interfaces;
-using Test_application_iTechArt.DAL.Models;
+using iTechArt.TestApplication.DAL.Interfaces;
+using iTechArt.TestApplication.DAL.Models;
 
-namespace Test_application_iTechArt.DAL
+namespace iTechArt.TestApplication.DAL
 {
 	public class DepotRepository : IDepotRepository
 	{

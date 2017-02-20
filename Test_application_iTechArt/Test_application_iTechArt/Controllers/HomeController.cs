@@ -1,14 +1,16 @@
-﻿using System;
+﻿using iTechArt.TestApplication.DAL;
+using iTechArt.TestApplication.DAL.Interfaces;
+using iTechArt.TestApplication.DAL.Models;
+using iTechArt.TestApplication.Services.Interfaces;
+using iTechArtTestApplication.DAL.Interfaces;
+using iTechArtTestApplication.Services.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using Test_application_iTechArt.DAL;
-using Test_application_iTechArt.DAL.Interfaces;
-using Test_application_iTechArt.DAL.Models;
-using Test_application_iTechArt.Services.Domain;
-using Test_application_iTechArt.Services.Interfaces;
 
-namespace Test_application_iTechArt.Controllers
+
+namespace iTechArt.TestApplication.Controllers
 {
     public class HomeController : Controller
     {

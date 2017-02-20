@@ -1,13 +1,9 @@
-﻿using System;
+﻿using iTechArt.TestApplication.DAL.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Test_application_iTechArt.DAL.Models;
 
-namespace Test_application_iTechArt.DAL.Interfaces
+namespace iTechArt.TestApplication.DAL.Interfaces
 {
-    public interface IDepotRepository
+	public interface IDepotRepository
     {
         IEnumerable<Depot> GetAll();
     }
