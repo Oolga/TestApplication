@@ -91,7 +91,9 @@ D:\Project\Test_application_iTechArt\Test_application_iTechArt\bin\System.Web.Ra
 D:\Project\Test_application_iTechArt\Test_application_iTechArt\bin\System.Web.WebPages.Deployment.dll
 D:\Project\Test_application_iTechArt\Test_application_iTechArt\bin\System.Web.WebPages.dll
 D:\Project\Test_application_iTechArt\Test_application_iTechArt\bin\System.Web.WebPages.Razor.dll
+D:\Project\Test_application_iTechArt\Test_application_iTechArt\bin\Test_application_iTechArt.DAL.dll
 D:\Project\Test_application_iTechArt\Test_application_iTechArt\bin\WebGrease.dll
+D:\Project\Test_application_iTechArt\Test_application_iTechArt\bin\Test_application_iTechArt.DAL.pdb
 D:\Project\Test_application_iTechArt\Test_application_iTechArt\bin\EntityFramework.xml
 D:\Project\Test_application_iTechArt\Test_application_iTechArt\bin\EntityFramework.SqlServer.xml
 D:\Project\Test_application_iTechArt\Test_application_iTechArt\bin\Microsoft.AI.DependencyCollector.xml
@@ -112,5 +114,5 @@ D:\Project\Test_application_iTechArt\Test_application_iTechArt\bin\Newtonsoft.Js
 D:\Project\Test_application_iTechArt\Test_application_iTechArt\obj\Debug\Test_application_iTechArt.csprojResolveAssemblyReference.cache
 D:\Project\Test_application_iTechArt\Test_application_iTechArt\obj\Debug\Test_application_iTechArt.dll
 D:\Project\Test_application_iTechArt\Test_application_iTechArt\obj\Debug\Test_application_iTechArt.pdb
-D:\Project\Test_application_iTechArt\Test_application_iTechArt\bin\Test_application_iTechArt.DAL.dll
-D:\Project\Test_application_iTechArt\Test_application_iTechArt\bin\Test_application_iTechArt.DAL.pdb
+D:\Project\Test_application_iTechArt\Test_application_iTechArt\bin\Test_application_iTechArt.Services.dll
+D:\Project\Test_application_iTechArt\Test_application_iTechArt\bin\Test_application_iTechArt.Services.pdb

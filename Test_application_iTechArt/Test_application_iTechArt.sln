@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_application_iTechArt",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_application_iTechArt.DAL", "Test_application_iTechArt.DAL\Test_application_iTechArt.DAL.csproj", "{366737FA-2360-4CF1-8D82-FD26EE62CD78}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_application_iTechArt.Services", "Test_application_iTechArt.Services\Test_application_iTechArt.Services.csproj", "{101030C0-58EC-4E0A-B915-DDACA9958191}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{366737FA-2360-4CF1-8D82-FD26EE62CD78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{366737FA-2360-4CF1-8D82-FD26EE62CD78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{366737FA-2360-4CF1-8D82-FD26EE62CD78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{101030C0-58EC-4E0A-B915-DDACA9958191}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{101030C0-58EC-4E0A-B915-DDACA9958191}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{101030C0-58EC-4E0A-B915-DDACA9958191}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{101030C0-58EC-4E0A-B915-DDACA9958191}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

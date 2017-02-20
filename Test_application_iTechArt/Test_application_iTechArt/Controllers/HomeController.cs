@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using Test_application_iTechArt.DAL;
+using Test_application_iTechArt.DAL.Interfaces;
 using Test_application_iTechArt.DAL.Models;
+using Test_application_iTechArt.Services.Domain;
+using Test_application_iTechArt.Services.Interfaces;
 
 namespace Test_application_iTechArt.Controllers
 {
@@ -16,7 +19,7 @@ namespace Test_application_iTechArt.Controllers
             List<DrugUnit> units = new List<DrugUnit>();
             try
             {
-                var drugUnitRepository = new DrugUnitRepository();
+                IDrugUnitRepository drugUnitRepository = new DrugUnitRepository();
 
                 for (int i = 0; i < numbers.Count(); i++)
                 {
@@ -40,10 +43,8 @@ namespace Test_application_iTechArt.Controllers
         {
             try
             {
-                var drugUnitRepository = new DrugUnitRepository();
-
-                List<DrugUnit> units = drugUnitRepository.GetAll().Where(x => x.DepotId == depotId && x.DrugTypeId == drugTypeId).ToList<DrugUnit>();
-                units.ForEach(x => x.DrugType.Weight = Math.Round(x.DrugType.Weight / 2.2, 2));
+				IDrugUnitService service = new DrugUnitService();
+				var units = service.GetDrugUnitsForDepot(depotId, drugTypeId);
 
                 return PartialView(units);
             }
@@ -58,8 +59,8 @@ namespace Test_application_iTechArt.Controllers
         {
             try
             {
-                var depotRepository = new DepotRepository();
-                var drugTypeRepository = new DrugTypeRepository();
+                IDepotRepository depotRepository = new DepotRepository();
+                IDrugTypeRepository drugTypeRepository = new DrugTypeRepository();
 
                 ViewBag.depots = depotRepository.GetAll();
                 ViewBag.drugTypes = drugTypeRepository.GetAll();
@@ -77,8 +78,8 @@ namespace Test_application_iTechArt.Controllers
         {
             try
             {
-                var depotRepository = new DepotRepository();
-                var drugUnitRepository = new DrugUnitRepository();
+                IDepotRepository depotRepository = new DepotRepository();
+                IDrugUnitRepository drugUnitRepository = new DrugUnitRepository();
 
                 ViewBag.depots = depotRepository.GetAll();
                 ViewBag.drugUnits =drugUnitRepository.GetAll();
@@ -95,8 +96,8 @@ namespace Test_application_iTechArt.Controllers
         {
             try
             {
-                var depotRepository = new DepotRepository();
-                var drugUnitRepository = new DrugUnitRepository();
+                IDepotRepository depotRepository = new DepotRepository();
+                IDrugUnitRepository drugUnitRepository = new DrugUnitRepository();
 
                 ViewBag.depots = depotRepository.GetAll();
                 ViewBag.drugUnits = drugUnitRepository.GetAll();
@@ -112,7 +113,7 @@ namespace Test_application_iTechArt.Controllers
         {
             try
             {
-                var drugUnitRepository = new DrugUnitRepository();
+                IDrugUnitRepository drugUnitRepository = new DrugUnitRepository();
 
                 DrugUnit unit = drugUnitRepository.GetAll().Where(x => x.DrugUnitId == DrugUnitId).First();
                 unit.DepotId = DepotId;
@@ -136,8 +137,8 @@ namespace Test_application_iTechArt.Controllers
         {
             try
             {
-                var drugTypeRepository = new DrugTypeRepository();
-                var depotRepository = new DepotRepository();
+                IDrugTypeRepository drugTypeRepository = new DrugTypeRepository();
+                IDepotRepository depotRepository = new DepotRepository();
 
                 ViewBag.drugTypes =drugTypeRepository.GetAll();
                 ViewBag.depots = depotRepository.GetAll();

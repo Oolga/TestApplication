@@ -197,18 +197,30 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Scripts\Views\Web.config" />
+    <Content Include="Scripts\Views\_ViewStart.cshtml" />
+    <Content Include="Scripts\Views\Shared\Error.cshtml" />
+    <Content Include="Scripts\Views\Shared\_Layout.cshtml" />
+    <Content Include="Scripts\Views\Home\Depots.cshtml" />
+    <Content Include="Scripts\Views\Home\DrugUnitToDepot.cshtml" />
+    <Content Include="Scripts\Views\Home\Сalculate.cshtml" />
+    <Content Include="Scripts\Views\Home\UnitsSearch.cshtml" />
+    <Content Include="Scripts\Views\Home\Weight.cshtml" />
+    <Content Include="Scripts\Views\Home\ShowWeight.cshtml" />
+    <Content Include="Scripts\Views\Home\MessageWindow.cshtml" />
+    <Content Include="Scripts\Views\Home\Error.cshtml" />
     <Content Include="Views\Home\Depots.cshtml" />
     <Content Include="Views\Home\DrugUnitToDepot.cshtml" />
-    <Content Include="Views\Home\Сalculate.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\Home\MessageWindow.cshtml" />
+    <Content Include="Views\Home\ShowWeight.cshtml" />
     <Content Include="Views\Home\UnitsSearch.cshtml" />
     <Content Include="Views\Home\Weight.cshtml" />
-    <Content Include="Views\Home\ShowWeight.cshtml" />
-    <Content Include="Views\Home\MessageWindow.cshtml" />
-    <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\Home\Сalculate.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -228,6 +240,10 @@
     <ProjectReference Include="..\Test_application_iTechArt.DAL\Test_application_iTechArt.DAL.csproj">
       <Project>{366737fa-2360-4cf1-8d82-fd26ee62cd78}</Project>
       <Name>Test_application_iTechArt.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Test_application_iTechArt.Services\Test_application_iTechArt.Services.csproj">
+      <Project>{101030c0-58ec-4e0a-b915-ddaca9958191}</Project>
+      <Name>Test_application_iTechArt.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

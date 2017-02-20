@@ -1,0 +1,9 @@
+D:\Project\Test_application_iTechArt\Test_application_iTechArt.Services\obj\Debug\Test_application_iTechArt.Services.csprojResolveAssemblyReference.cache
+D:\Project\Test_application_iTechArt\Test_application_iTechArt.Services\bin\Debug\Test_application_iTechArt.Services.dll
+D:\Project\Test_application_iTechArt\Test_application_iTechArt.Services\bin\Debug\Test_application_iTechArt.Services.pdb
+D:\Project\Test_application_iTechArt\Test_application_iTechArt.Services\bin\Debug\Test_application_iTechArt.DAL.dll
+D:\Project\Test_application_iTechArt\Test_application_iTechArt.Services\bin\Debug\EntityFramework.dll
+D:\Project\Test_application_iTechArt\Test_application_iTechArt.Services\bin\Debug\Test_application_iTechArt.DAL.pdb
+D:\Project\Test_application_iTechArt\Test_application_iTechArt.Services\bin\Debug\EntityFramework.xml
+D:\Project\Test_application_iTechArt\Test_application_iTechArt.Services\obj\Debug\Test_application_iTechArt.Services.dll
+D:\Project\Test_application_iTechArt\Test_application_iTechArt.Services\obj\Debug\Test_application_iTechArt.Services.pdb

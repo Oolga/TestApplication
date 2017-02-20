@@ -51,10 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IDepotRepository.cs" />
+    <Compile Include="Interfaces\IDrugTypeRepository.cs" />
+    <Compile Include="Interfaces\IDrugUnitRepository.cs" />
     <Compile Include="Models\Country.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Repositories\CountryRepository.cs" />
     <Compile Include="Models\Depot.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

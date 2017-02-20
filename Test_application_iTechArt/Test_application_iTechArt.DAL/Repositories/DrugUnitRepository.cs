@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Test_application_iTechArt.DAL.Interfaces;
 using Test_application_iTechArt.DAL.Models;
 
 namespace Test_application_iTechArt.DAL
 {
-    public class DrugUnitRepository
+    public class DrugUnitRepository: IDrugUnitRepository
     {
         Entities db = new Entities();
         public void Add(DrugUnit drugUnit)
@@ -16,7 +17,7 @@ namespace Test_application_iTechArt.DAL
             db.SaveChanges();
         }
 
-        public List<DrugUnit> GetAll()
+        public IEnumerable<DrugUnit> GetAll()
         {
             return db.DrugUnit.ToList<DrugUnit>();
         }
