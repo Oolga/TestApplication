@@ -158,7 +158,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DepotsController.cs" />
+    <Compile Include="Controllers\DrugUnitToDepotController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\WeightController.cs" />
+    <Compile Include="Controllers\СalculateController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -209,14 +213,14 @@
     <Content Include="Scripts\Views\Home\ShowWeight.cshtml" />
     <Content Include="Scripts\Views\Home\MessageWindow.cshtml" />
     <Content Include="Scripts\Views\Home\Error.cshtml" />
-    <Content Include="Views\Home\Depots.cshtml" />
-    <Content Include="Views\Home\DrugUnitToDepot.cshtml" />
+    <Content Include="Views\Depots\Depots.cshtml" />
+    <Content Include="Views\DrugUnitToDepot\DrugUnitToDepot.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
     <Content Include="Views\Home\MessageWindow.cshtml" />
-    <Content Include="Views\Home\ShowWeight.cshtml" />
-    <Content Include="Views\Home\UnitsSearch.cshtml" />
-    <Content Include="Views\Home\Weight.cshtml" />
-    <Content Include="Views\Home\Сalculate.cshtml" />
+    <Content Include="Views\Weight\ShowWeight.cshtml" />
+    <Content Include="Views\Сalculate\UnitsSearch.cshtml" />
+    <Content Include="Views\Weight\Weight.cshtml" />
+    <Content Include="Views\Сalculate\Сalculate.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
@@ -224,6 +228,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\UnitsSearch\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

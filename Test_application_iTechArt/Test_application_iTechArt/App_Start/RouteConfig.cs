@@ -16,7 +16,7 @@ namespace iTechArtTestApplication
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Depots", id = UrlParameter.Optional }
+                defaults: new { controller = "Depots", action = "Depots", id = UrlParameter.Optional }
             );
         }
     }

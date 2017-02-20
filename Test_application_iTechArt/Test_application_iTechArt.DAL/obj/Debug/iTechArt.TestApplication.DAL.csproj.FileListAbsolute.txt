@@ -7,4 +7,3 @@ D:\Project\Test_application_iTechArt\Test_application_iTechArt.DAL\bin\Debug\Ent
 D:\Project\Test_application_iTechArt\Test_application_iTechArt.DAL\bin\Debug\EntityFramework.SqlServer.xml
 D:\Project\Test_application_iTechArt\Test_application_iTechArt.DAL\obj\Debug\Test_application_iTechArt.DAL.dll
 D:\Project\Test_application_iTechArt\Test_application_iTechArt.DAL\obj\Debug\Test_application_iTechArt.DAL.pdb
-D:\Project\Test_application_iTechArt\Test_application_iTechArt.DAL\obj\Debug\iTechArt.TestApplication.DAL.csprojResolveAssemblyReference.cache
