@@ -1,13 +1,4 @@
-﻿using iTechArt.TestApplication.DAL;
-using iTechArt.TestApplication.DAL.Interfaces;
-using iTechArt.TestApplication.DAL.Models;
-using iTechArt.TestApplication.Services.Interfaces;
-using iTechArtTestApplication.DAL.Interfaces;
-using iTechArtTestApplication.Services.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 
 namespace iTechArt.TestApplication.Controllers

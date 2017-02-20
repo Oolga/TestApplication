@@ -1,26 +1,23 @@
-﻿using iTechArt.TestApplication.DAL;
-using iTechArt.TestApplication.DAL.Interfaces;
-using iTechArt.TestApplication.DAL.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System;
 using System.Web.Mvc;
+using Test_application_iTechArt.Services.Domain;
+using Test_application_iTechArt.Services.Interfaces;
 
 namespace Test_application_iTechArt.Controllers
 {
-    public class DrugUnitToDepotController : Controller
+	public class DrugUnitToDepotController : Controller
     {
+
 		// GET: DrugUnitToDepot
 		public ActionResult DrugUnitToDepot()
 		{
 			try
 			{
-				IDepotRepository depotRepository = new DepotRepository();
-				IDrugUnitRepository drugUnitRepository = new DrugUnitRepository();
+				IDrugUnitToDepotService service = new DrugUnitToDepotService();
 
-				ViewBag.depots = depotRepository.GetAll();
-				ViewBag.drugUnits = drugUnitRepository.GetAll();
+				ViewBag.depots = service.GetDepots();
+				ViewBag.drugUnits = service.GetDrugUnits();
+
 				return View();
 			}
 			catch (Exception ex)
@@ -33,11 +30,9 @@ namespace Test_application_iTechArt.Controllers
 		{
 			try
 			{
-				IDrugUnitRepository drugUnitRepository = new DrugUnitRepository();
+				IDrugUnitToDepotService service = new DrugUnitToDepotService();
 
-				DrugUnit unit = drugUnitRepository.GetAll().Where(x => x.DrugUnitId == DrugUnitId).First();
-				unit.DepotId = DepotId;
-				drugUnitRepository.Update(unit);
+				service.UpdateUnitByDepotId(DrugUnitId,DepotId);
 
 				return Redirect("/Home/MessageWindow?message=Changes saved.");
 			}

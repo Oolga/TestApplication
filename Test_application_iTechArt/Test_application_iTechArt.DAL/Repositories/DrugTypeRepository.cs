@@ -1,12 +1,12 @@
-﻿using iTechArt.TestApplication.DAL.Models;
-using iTechArtTestApplication.DAL.Interfaces;
+﻿using iTechArt.TestApplication.DAL.Interfaces;
+using iTechArt.TestApplication.DAL.Models;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace iTechArt.TestApplication.DAL
 {
-	public class DrugTypeRepository: IDrugTypeRepository
-    {
+	public class DrugTypeRepository: IDrugTypeRepository, IRepository<DrugType>
+	{
         Entities db = new Entities();
         public void Add(DrugType drugType)
         {

@@ -1,7 +1,7 @@
 ﻿using iTechArt.TestApplication.DAL.Models;
 using System.Collections.Generic;
 
-namespace iTechArtTestApplication.DAL.Interfaces
+namespace iTechArt.TestApplication.DAL.Interfaces
 {
 	public interface IDrugTypeRepository
     {

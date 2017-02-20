@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Test_application_iTechArt.Services.Domain;
+using Test_application_iTechArt.Services.Interfaces;
 
 namespace Test_application_iTechArt.Controllers
 {
@@ -15,11 +17,10 @@ namespace Test_application_iTechArt.Controllers
 		{
 			try
 			{
-				IDepotRepository depotRepository = new DepotRepository();
-				IDrugUnitRepository drugUnitRepository = new DrugUnitRepository();
+				IDepotsService service = new DepotsService();
 
-				ViewBag.depots = depotRepository.GetAll();
-				ViewBag.drugUnits = drugUnitRepository.GetAll();
+				ViewBag.depots = service.GetDepots();
+				ViewBag.drugUnits = service.GetDrugUnits();
 
 				return View();
 			}

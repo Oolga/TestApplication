@@ -3,9 +3,10 @@ using System.Linq;
 using iTechArt.TestApplication.DAL.Interfaces;
 using iTechArt.TestApplication.DAL.Models;
 
+
 namespace iTechArt.TestApplication.DAL
 {
-	public class DepotRepository : IDepotRepository
+	public class DepotRepository : IDepotRepository,IRepository<Depot>
 	{
 		Entities db = new Entities();
 

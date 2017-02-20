@@ -6,8 +6,8 @@ using System.Linq;
 
 namespace iTechArt.TestApplication.DAL
 {
-    public class DrugUnitRepository: IDrugUnitRepository
-    {
+    public class DrugUnitRepository: IDrugUnitRepository, IRepository<DrugUnit>
+	{
         Entities db = new Entities();
         public void Add(DrugUnit drugUnit)
         {

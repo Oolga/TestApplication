@@ -1,28 +1,21 @@
-﻿using iTechArt.TestApplication.DAL;
-using iTechArt.TestApplication.DAL.Interfaces;
-using iTechArt.TestApplication.Services.Interfaces;
-using iTechArtTestApplication.DAL.Interfaces;
-using iTechArtTestApplication.Services.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System;
 using System.Web.Mvc;
+using Test_application_iTechArt.Services.Domain;
+using Test_application_iTechArt.Services.Interfaces;
 
 namespace Test_application_iTechArt.Controllers
 {
-    public class WeightController : Controller
+	public class WeightController : Controller
     {
 		// GET: Weight
 		public ActionResult Weight()
 		{
 			try
 			{
-				IDrugTypeRepository drugTypeRepository = new DrugTypeRepository();
-				IDepotRepository depotRepository = new DepotRepository();
+				IWeightService service = new WeightService();
 
-				ViewBag.drugTypes = drugTypeRepository.GetAll();
-				ViewBag.depots = depotRepository.GetAll();
+				ViewBag.drugTypes =service.GetDrugTypes();
+				ViewBag.depots = service.GetDepots();
 				return View();
 			}
 			catch (Exception ex)
@@ -34,7 +27,7 @@ namespace Test_application_iTechArt.Controllers
 		{
 			try
 			{
-				IDrugUnitService service = new DrugUnitService();
+				IWeightService service = new WeightService();
 				var units = service.GetDrugUnitsForDepot(depotId, drugTypeId);
 
 				return PartialView(units);

@@ -1,16 +1,26 @@
 ﻿using iTechArt.TestApplication.DAL;
 using iTechArt.TestApplication.DAL.Interfaces;
-using iTechArt.TestApplication.Services.Interfaces;
 using iTechArt.TestApplication.DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Test_application_iTechArt.Services.Interfaces;
 
-
-namespace iTechArtTestApplication.Services.Domain
+namespace Test_application_iTechArt.Services.Domain
 {
-	public class DrugUnitService: IDrugUnitService
+	public class WeightService:IWeightService
 	{
+		public IEnumerable<Depot> GetDepots()
+		{
+			IDepotRepository depotRepository = new DepotRepository();
+			return depotRepository.GetAll();
+		}
+
+		public IEnumerable<DrugType> GetDrugTypes()
+		{
+			IDrugTypeRepository drugTypeRepository = new DrugTypeRepository();
+			return drugTypeRepository.GetAll();
+		}
 		public IEnumerable<DrugUnit> GetDrugUnitsForDepot(int depotId, int drugTypeId)
 		{
 			IDrugUnitRepository drugUnitRepository = new DrugUnitRepository();

@@ -54,6 +54,7 @@
     <Compile Include="Interfaces\IDepotRepository.cs" />
     <Compile Include="Interfaces\IDrugTypeRepository.cs" />
     <Compile Include="Interfaces\IDrugUnitRepository.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Models\Country.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

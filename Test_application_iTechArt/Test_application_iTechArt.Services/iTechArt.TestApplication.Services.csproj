@@ -40,8 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domain\DrugUnitService.cs" />
-    <Compile Include="Interfaces\IDrugUnitService.cs" />
+    <Compile Include="Domain\CalculateService.cs" />
+    <Compile Include="Domain\DepotsService.cs" />
+    <Compile Include="Domain\DrugUnitToDepotService.cs" />
+    <Compile Include="Domain\WeightService.cs" />
+    <Compile Include="Interfaces\ICalculateService.cs" />
+    <Compile Include="Interfaces\IDepotsService.cs" />
+    <Compile Include="Interfaces\IDrugUnitToDepotService.cs" />
+    <Compile Include="Interfaces\IWeightService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
