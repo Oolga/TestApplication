@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iTechArt.TestApplication.Web", "Test_application_iTechArt\iTechArt.TestApplication.Web.csproj", "{840C467A-8B11-41B2-9807-9079209A800A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iTechArt.TestApplication.Web", "iTechArt.TestApplication\iTechArt.TestApplication.Web.csproj", "{840C467A-8B11-41B2-9807-9079209A800A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iTechArt.TestApplication.DAL", "Test_application_iTechArt.DAL\iTechArt.TestApplication.DAL.csproj", "{366737FA-2360-4CF1-8D82-FD26EE62CD78}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iTechArt.TestApplication.DAL", "iTechArt.TestApplication.DAL\iTechArt.TestApplication.DAL.csproj", "{366737FA-2360-4CF1-8D82-FD26EE62CD78}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iTechArt.TestApplication.Services", "Test_application_iTechArt.Services\iTechArt.TestApplication.Services.csproj", "{101030C0-58EC-4E0A-B915-DDACA9958191}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iTechArt.TestApplication.Services", "iTechArt.TestApplication.Services\iTechArt.TestApplication.Services.csproj", "{101030C0-58EC-4E0A-B915-DDACA9958191}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

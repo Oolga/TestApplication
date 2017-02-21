@@ -1,9 +1,0 @@
-D:\Project\Test_application_iTechArt\Test_application_iTechArt.DAL\bin\Debug\Test_application_iTechArt.DAL.dll.config
-D:\Project\Test_application_iTechArt\Test_application_iTechArt.DAL\bin\Debug\Test_application_iTechArt.DAL.dll
-D:\Project\Test_application_iTechArt\Test_application_iTechArt.DAL\bin\Debug\Test_application_iTechArt.DAL.pdb
-D:\Project\Test_application_iTechArt\Test_application_iTechArt.DAL\bin\Debug\EntityFramework.dll
-D:\Project\Test_application_iTechArt\Test_application_iTechArt.DAL\bin\Debug\EntityFramework.SqlServer.dll
-D:\Project\Test_application_iTechArt\Test_application_iTechArt.DAL\bin\Debug\EntityFramework.xml
-D:\Project\Test_application_iTechArt\Test_application_iTechArt.DAL\bin\Debug\EntityFramework.SqlServer.xml
-D:\Project\Test_application_iTechArt\Test_application_iTechArt.DAL\obj\Debug\Test_application_iTechArt.DAL.dll
-D:\Project\Test_application_iTechArt\Test_application_iTechArt.DAL\obj\Debug\Test_application_iTechArt.DAL.pdb
