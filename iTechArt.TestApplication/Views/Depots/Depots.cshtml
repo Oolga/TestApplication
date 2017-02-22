@@ -1,0 +1,52 @@
+﻿@using iTechArt.TestApplication.DAL.EF
+@{
+    ViewBag.Title = "Deports";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br>
+<table class="table table-hover">
+    <thed>
+        <tr>
+            <th>Depot Name</th>
+            <th>Country Name</th>
+            <th>Drug Type Name</th>
+            <th>Drug Unit Id</th>
+            <th>Pick Number</th>
+        </tr>
+    </thed>
+    <tbody>
+        @if (ViewBag.depots.Count != 0)
+        {
+            foreach (var item in ((List<Depot>)ViewBag.depots))
+            {
+
+                if (item.DrugUnits.Count != 0)
+                {
+                    foreach (var unit in (ICollection<DrugUnit>)item.DrugUnits)
+                    {
+                        <tr>
+                            <td>@unit.Depot.DepotName</td>
+                            <td>@unit.Depot.Country.CountryName</td>
+                            <td>@unit.DrugType.DrugTypeName</td>
+                            <td>@unit.Id</td>
+                            <td>@unit.PickNumber</td>
+                         </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td>@item.DepotName</td>
+                        <td>empty</td>
+                        <td>empty</td>
+                        <td>empty</td>
+                        <td>empty</td>
+                    </tr>
+                }
+
+            }
+        }
+    </tbody>
+</table>
+

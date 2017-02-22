@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Weight";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br>
+<div class="row">
+    <div class="col-md-4">
+        <label>Depot</label>
+        @if (ViewBag.depots.Count != 0)
+        {
+            <select class="form-control" id="DepotId">
+                @foreach (var depot in ViewBag.depots)
+                {
+                    <option value="@depot.Id">@depot.DepotName</option>
+
+                }
+            </select>
+        }
+        </div>
+        <div class="col-md-4">
+            <label>Drug type</label>
+        @if (ViewBag.drugTypes.Count != 0)
+        {
+            <select class="form-control" id="DrugType">
+                @foreach (var drugType in ViewBag.drugTypes)
+                {
+                    <option value="@drugType.Id">@drugType.DrugTypeName</option>
+                }
+            </select>
+        }
+        </div>
+        <div class="col-md-4">
+            <br>
+            <button class="btn btn-success" id="Show">Show</button>
+        </div>
+    </div>
+<br>
+<div id="results"></div>
+
+<script language="javascript" type="text/javascript">
+    $('button#Show').click(function () {
+        var depot=$('#DepotId').val();
+        var type = $('#DrugType').val();
+
+        var data={depotId:depot, drugTypeId:type};
+        if (depot!=null && type!=null)
+        $('#results').load('ShowWeight?'+ $.param(data, true));
+    });
+</script>
