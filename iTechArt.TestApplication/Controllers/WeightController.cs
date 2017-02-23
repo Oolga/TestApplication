@@ -1,5 +1,6 @@
 ﻿using iTechArt.TestApplication.Services.Domain;
 using iTechArt.TestApplication.Services.Interfaces;
+using iTechArt.TestApplication.Web.ViewModels;
 using System;
 using System.Web.Mvc;
 
@@ -13,10 +14,10 @@ namespace Test_application_iTechArt.Controllers
 			try
 			{
 				IWeightService service = new WeightService();
-
-				ViewBag.drugTypes =service.GetDrugTypes();
-				ViewBag.depots = service.GetDepots();
-				return View();
+				WeightViewModel model = new WeightViewModel();
+				model.DrugTypes =service.GetDrugTypes();
+				model.Depots = service.GetDepots();
+				return View(model);
 			}
 			catch (Exception ex)
 			{

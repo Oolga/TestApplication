@@ -1,4 +1,6 @@
 ﻿@using iTechArt.TestApplication.DAL.EF
+@using iTechArt.TestApplication.Web.ViewModels
+@model DrugUnitToDepotViewModel
 @{
     ViewBag.Title = "DrugUnitToDepot";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -19,11 +21,11 @@
             <th>Depot Name</th>
         </tr>
     </thed>
-@if (ViewBag.drugUnits.Count > 0)
+@if (Model.DrugUnits!=null)
 {
     <tbody>
        
-            @foreach (DrugUnit item in ViewBag.drugUnits)
+            @foreach (DrugUnit item in Model.DrugUnits)
             {
                 <tr>
                     <td> @item.Id </td>
@@ -31,7 +33,7 @@
                     <td> @item.DrugType.DrugTypeName </td>
                     <td>
                         <select class="form-control" id="@item.Id">
-                            @foreach (var depot in ViewBag.depots)
+                            @foreach (var depot in Model.Depots)
                             {
                                 <option value="@depot.Id">@depot.DepotName</option>
 

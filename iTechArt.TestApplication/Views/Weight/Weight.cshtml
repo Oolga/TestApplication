@@ -1,4 +1,6 @@
-﻿
+﻿@using iTechArt.TestApplication.Web.ViewModels
+@model WeightViewModel
+
 @{
     ViewBag.Title = "Weight";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -8,10 +10,10 @@
 <div class="row">
     <div class="col-md-4">
         <label>Depot</label>
-        @if (ViewBag.depots.Count != 0)
+        @if (Model.Depots!= null)
         {
             <select class="form-control" id="DepotId">
-                @foreach (var depot in ViewBag.depots)
+                @foreach (var depot in Model.Depots)
                 {
                     <option value="@depot.Id">@depot.DepotName</option>
 
@@ -21,10 +23,10 @@
         </div>
         <div class="col-md-4">
             <label>Drug type</label>
-        @if (ViewBag.drugTypes.Count != 0)
-        {
+        @if (Model.DrugTypes != null)
+		{
             <select class="form-control" id="DrugType">
-                @foreach (var drugType in ViewBag.drugTypes)
+                @foreach (var drugType in Model.DrugTypes)
                 {
                     <option value="@drugType.Id">@drugType.DrugTypeName</option>
                 }

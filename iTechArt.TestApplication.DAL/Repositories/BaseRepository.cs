@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace iTechArt.TestApplication.DAL.Repositories
 {
-	public abstract class BaseRepository<T>: IBaseRepository<T> where T: BaseEntity
+	public abstract class BaseRepository<T> where T: BaseEntity
 	{
 		private readonly EFModel _context;
 		private IDbSet<T> _entities;
@@ -33,6 +33,11 @@ namespace iTechArt.TestApplication.DAL.Repositories
 		public IEnumerable<T> GetAll()
 		{
 			return Entities.ToList<T>();
+		}
+
+		public IQueryable<T> GetQueryableAll()
+		{
+			return Entities;
 		}
 
 		public void Add(T item)

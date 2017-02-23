@@ -3,10 +3,8 @@ using System.Collections.Generic;
 
 namespace iTechArt.TestApplication.DAL.Interfaces
 {
-    public interface IDrugUnitRepository
+    public interface IDrugUnitRepository: IBaseRepository<DrugUnit>
     {
-		IEnumerable<DrugUnit> GetAll();
-		void Update(DrugUnit depot);
-		DrugUnit GetById(int id);
+
 	}
 }

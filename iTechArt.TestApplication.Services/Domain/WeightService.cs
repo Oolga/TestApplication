@@ -25,7 +25,7 @@ namespace iTechArt.TestApplication.Services.Domain
 		{
 			IDrugUnitRepository drugUnitRepository = new DrugUnitRepository();
 
-			List<DrugUnit> units = drugUnitRepository.GetAll().Where(x => x.DepotId == depotId && x.DtugTypeId == drugTypeId).ToList<DrugUnit>();
+			List<DrugUnit> units = drugUnitRepository.GetQueryableAll().Where(x => x.DepotId == depotId && x.DtugTypeId == drugTypeId).ToList<DrugUnit>();
 			units.ForEach(x => x.DrugType.Weight = Math.Round(x.DrugType.Weight / 2.2, 2));
 
 			return units;

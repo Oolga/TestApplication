@@ -1,4 +1,6 @@
 ﻿@using iTechArt.TestApplication.DAL.EF
+@using iTechArt.TestApplication.Web.ViewModels
+@model DepotsViewModel
 @{
     ViewBag.Title = "Deports";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -16,9 +18,9 @@
         </tr>
     </thed>
     <tbody>
-        @if (ViewBag.depots.Count != 0)
+        @if (Model.Depots != null)
         {
-            foreach (var item in ((List<Depot>)ViewBag.depots))
+            foreach (var item in (Model.Depots))
             {
 
                 if (item.DrugUnits.Count != 0)

@@ -31,8 +31,8 @@ namespace iTechArt.TestApplication.Services.Domain
 			{
 				for (int j = 0; j < numbers.ElementAt(i); j++)
 				{
-					if (j < (drugUnitRepository.GetAll().Where(x => x.DepotId == depotId && x.DtugTypeId == (i + 1))).ToList<DrugUnit>().Count)
-						units.Add((drugUnitRepository.GetAll().Where(x => x.DepotId == depotId && x.DtugTypeId == (i + 1))).ToList<DrugUnit>().OrderBy(x => x.PickNumber).ElementAt(j));
+					if (j < (drugUnitRepository.GetQueryableAll().Where(x => x.DepotId == depotId && x.DtugTypeId == (i + 1))).ToList<DrugUnit>().Count)
+						units.Add((drugUnitRepository.GetQueryableAll().Where(x => x.DepotId == depotId && x.DtugTypeId == (i + 1))).ToList<DrugUnit>().OrderBy(x => x.PickNumber).ElementAt(j));
 				}
 			}
 			return units;

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 namespace iTechArt.TestApplication.DAL.Interfaces
 {
-	public interface IDepotRepository
+	public interface IDepotRepository: IBaseRepository<Depot>
     {
-        IEnumerable<Depot> GetAll();
+
     }
 }

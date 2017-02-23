@@ -1,5 +1,6 @@
 ﻿using iTechArt.TestApplication.Services.Domain;
 using iTechArt.TestApplication.Services.Interfaces;
+using iTechArt.TestApplication.Web.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
@@ -14,11 +15,11 @@ namespace iTechArt.TestApplication.Controllers
 			try
 			{
 				ICalculateService service = new CalculateService();
+				CalculateViewModel model = new CalculateViewModel();
+				model.Depots = service.GetDepots();
+				model.DrugTypes = service.GetDrugTypes();
 
-				ViewBag.depots = service.GetDepots();
-				ViewBag.drugTypes = service.GetDrugTypes();
-
-				return View();
+				return View(model);
 			}
 			catch (Exception ex)
 			{
@@ -28,12 +29,9 @@ namespace iTechArt.TestApplication.Controllers
 		}
 		public ActionResult UnitsSearch(int depotId, List<int> numbers)
 		{
-
 			ICalculateService service = new CalculateService();
 			try
 			{
-
-
 				return PartialView(service.SearchDrugUnits(depotId,numbers));
 			}
 			catch (Exception ex)
