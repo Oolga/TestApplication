@@ -8,6 +8,7 @@ namespace iTechArt.TestApplication.Web.ViewModels
 {
 	public class DepotsViewModel
 	{
+		public int CountDepots { get; set; }
 		public IEnumerable<Depot> Depots { get; set; }
 		public IEnumerable<DrugUnit> DrugUnits { get; set; }
 	}

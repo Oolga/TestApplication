@@ -17,38 +17,41 @@
             <th>Pick Number</th>
         </tr>
     </thed>
-    <tbody>
-        @if (Model.Depots != null)
-        {
-            foreach (var item in (Model.Depots))
-            {
+    <tbody id="results">
+      @if (Model.Depots != null)
+	  {
+		  foreach (var item in (Model.Depots))
+		  {
 
-                if (item.DrugUnits.Count != 0)
-                {
-                    foreach (var unit in (ICollection<DrugUnit>)item.DrugUnits)
-                    {
-                        <tr>
-                            <td>@unit.Depot.DepotName</td>
-                            <td>@unit.Depot.Country.CountryName</td>
-                            <td>@unit.DrugType.DrugTypeName</td>
-                            <td>@unit.Id</td>
-                            <td>@unit.PickNumber</td>
-                         </tr>
-                    }
-                }
-                else
-                {
-                    <tr>
-                        <td>@item.DepotName</td>
-                        <td>empty</td>
-                        <td>empty</td>
-                        <td>empty</td>
-                        <td>empty</td>
-                    </tr>
-                }
+			  if (Model.DrugUnits.Count() != 0)
+			  {
+				  foreach (var unit in (ICollection<DrugUnit>)Model.DrugUnits)
+				  {
+					  if (unit.DepotId == item.Id)
+					  {
+					<tr>
+						<td>@unit.Depot.DepotName</td>
+						<td>@unit.Depot.Country.CountryName</td>
+						<td>@unit.DrugType.DrugTypeName</td>
+						<td>@unit.Id</td>
+						<td>@unit.PickNumber</td>
+					</tr>
+					  }
+				  }
+			  }
+			  else
+			  {
+				<tr>
+					<td>@item.DepotName</td>
+					<td>empty</td>
+					<td>empty</td>
+					<td>empty</td>
+					<td>empty</td>
+				</tr>
+			  }
 
-            }
-        }
+		  }
+	  }
     </tbody>
 </table>
-
+<button class="btn-default" id="show">Showe more</button>

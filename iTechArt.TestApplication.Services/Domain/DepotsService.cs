@@ -3,22 +3,32 @@ using iTechArt.TestApplication.DAL.Interfaces;
 using iTechArt.TestApplication.DAL.EF;
 using iTechArt.TestApplication.Services.Interfaces;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace iTechArt.TestApplication.Services.Domain
 {
 	public class DepotsService: IDepotsService
 	{
+		IDepotRepository depotRepository;
+		IDrugUnitRepository drugUnitRepository;
+
+		public DepotsService(IDepotRepository depotRepository, IDrugUnitRepository drugUnitRepository) {
+			this.depotRepository = depotRepository;
+			this.drugUnitRepository = drugUnitRepository;
+		}
 		public IEnumerable<Depot> GetDepots()
 		{
-			IDepotRepository depotRepository = new DepotRepository();
 			return depotRepository.GetAll();
-
 		}
 
 		public IEnumerable<DrugUnit> GetDrugUnits()
 		{
-			IDrugUnitRepository drugUnitRepository = new DrugUnitRepository();
 			return drugUnitRepository.GetAll();
+		}
+
+		public IEnumerable<DrugUnit> GetSomeDrugUnits(int first, int count)
+		{
+			return drugUnitRepository.GetQueryableAll().OrderBy(t => t.DepotId).SkipWhile(t => t.DepotId == null).Skip(first).Take(count).ToList();
 		}
 
 	}

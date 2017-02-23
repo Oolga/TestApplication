@@ -9,6 +9,7 @@ namespace iTechArt.TestApplication.Controllers
 	public class DepotsController : Controller
 	{
 		IDepotsService depotService;
+
 		public DepotsController(IDepotsService service) {
 			depotService = service;
 		}
@@ -20,7 +21,7 @@ namespace iTechArt.TestApplication.Controllers
 			{
 				DepotsViewModel model = new DepotsViewModel();
 				model.Depots=depotService.GetDepots();
-
+				model.DrugUnits = depotService.GetSomeDrugUnits(0, 10);
 
 				return View(model);
 			}
@@ -28,6 +29,13 @@ namespace iTechArt.TestApplication.Controllers
 			{
 				return View("/Home/Error", new HandleErrorInfo(ex, "Depots", "Depots"));
 			}
+		}
+
+		[HttpGet]
+		public ActionResult DepotsContent(int first, int count) {
+			DepotsViewModel model = new DepotsViewModel();
+			model.DrugUnits = depotService.GetSomeDrugUnits(first, count);
+			return PartialView();
 		}
 
 	}

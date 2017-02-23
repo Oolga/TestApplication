@@ -8,7 +8,5 @@ namespace iTechArt.TestApplication.DAL
 {
 	public class DepotRepository : BaseRepository<Depot>, IDepotRepository
 	{
-
-
 	}
 }

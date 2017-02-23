@@ -9,23 +9,29 @@ namespace iTechArt.TestApplication.Services.Domain
 {
 	public class CalculateService : ICalculateService
 	{
+		IDepotRepository depotRepository;
+		IDrugUnitRepository drugUnitRepository;
+		IDrugTypeRepository drugTypeRepository;
+
+		public CalculateService(IDepotRepository depotRepository, IDrugTypeRepository drugTypeRepository,IDrugUnitRepository drugUnitRepository) {
+			this.depotRepository = depotRepository;
+			this.drugTypeRepository = drugTypeRepository;
+			this.drugUnitRepository = drugUnitRepository;
+		}
+
 		public IEnumerable<Depot> GetDepots()
 		{
-			IDepotRepository depotRepository = new DepotRepository();
 			return depotRepository.GetAll();
 		}
 
 		public IEnumerable<DrugType> GetDrugTypes()
 		{
-			IDrugTypeRepository drugTypeRepository = new DrugTypeRepository();
 			return drugTypeRepository.GetAll();
 		}
 
 		public IEnumerable<DrugUnit> SearchDrugUnits(int depotId, List<int> numbers)
 		{
 			List<DrugUnit> units = new List<DrugUnit>();
-
-			IDrugUnitRepository drugUnitRepository = new DrugUnitRepository();
 
 			for (int i = 0; i < numbers.Count(); i++)
 			{

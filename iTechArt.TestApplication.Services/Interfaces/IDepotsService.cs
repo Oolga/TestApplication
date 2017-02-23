@@ -7,5 +7,6 @@ namespace iTechArt.TestApplication.Services.Interfaces
 	{
 		IEnumerable<Depot> GetDepots();
 		IEnumerable<DrugUnit> GetDrugUnits();
+		IEnumerable<DrugUnit> GetSomeDrugUnits(int first, int count);
 	}
 }

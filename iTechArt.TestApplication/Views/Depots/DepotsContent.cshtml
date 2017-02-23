@@ -1,0 +1,35 @@
+﻿@using iTechArt.TestApplication.DAL.EF
+@using iTechArt.TestApplication.Web.ViewModels
+@model DepotsViewModel
+
+@if (Model.Depots.Count() != 0)
+{
+	foreach (var item in (Model.Depots))
+	{
+
+		if (item.DrugUnits.Count() != 0)
+		{
+			foreach (var unit in (ICollection<DrugUnit>)item.DrugUnits)
+			{
+				<tr>
+					<td>@unit.Depot.DepotName</td>
+					<td>@unit.Depot.Country.CountryName</td>
+					<td>@unit.DrugType.DrugTypeName</td>
+					<td>@unit.Id</td>
+					<td>@unit.PickNumber</td>
+				</tr>
+			}
+		}
+		else
+		{
+			<tr>
+				<td>@item.DepotName</td>
+				<td>empty</td>
+				<td>empty</td>
+				<td>empty</td>
+				<td>empty</td>
+			</tr>
+		}
+
+	}
+}

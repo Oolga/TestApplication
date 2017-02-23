@@ -1,7 +1,6 @@
 ﻿
 	$('button#calculate').click(function () {
 		var count = $('#count').val();
-		alert(count);
 		var depot=$('#DepotId').val();
 		var numbers = [];
 

@@ -31,12 +31,12 @@ namespace iTechArt.TestApplication.Controllers
 				return View("/Home/Error", new HandleErrorInfo(ex, "DrugUnitToDepot", "DrugUnitToDepot"));
 			}
 		}
-		[HttpGet]
-		public ActionResult UpdateDrugUnitToDepot(int DrugUnitId, int DepotId)
+		[HttpPost]
+		public ActionResult UpdateDrugUnitToDepot(int drugUnitId, int depotId)
 		{
 			try
 			{
-				unitToDepotService.UpdateUnitByDepotId(DrugUnitId, DepotId);
+				unitToDepotService.UpdateUnitByDepotId(drugUnitId, depotId);
 				return Redirect("/Home/MessageWindow?message=Changes saved.");
 			}
 			catch (Exception ex)
