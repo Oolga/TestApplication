@@ -8,16 +8,21 @@ namespace iTechArt.TestApplication.Controllers
 {
 	public class DrugUnitToDepotController : Controller
     {
+		IDrugUnitToDepotService unitToDepotService;
+
+		public DrugUnitToDepotController(IDrugUnitToDepotService service) {
+			unitToDepotService = service;
+		}
 
 		[HttpGet]
 		public ActionResult DrugUnitToDepot()
 		{
 			try
 			{
-				IDrugUnitToDepotService service = new DrugUnitToDepotService();
+
 				DrugUnitToDepotViewModel model = new DrugUnitToDepotViewModel();
-				model.Depots = service.GetDepots();
-				model.DrugUnits = service.GetDrugUnits();
+				model.Depots = unitToDepotService.GetDepots();
+				model.DrugUnits = unitToDepotService.GetDrugUnits();
 
 				return View(model);
 			}
@@ -26,15 +31,13 @@ namespace iTechArt.TestApplication.Controllers
 				return View("/Home/Error", new HandleErrorInfo(ex, "DrugUnitToDepot", "DrugUnitToDepot"));
 			}
 		}
-		[HttpPost]
+		[HttpGet]
 		public ActionResult UpdateDrugUnitToDepot(int DrugUnitId, int DepotId)
 		{
 			try
 			{
-				IDrugUnitToDepotService service = new DrugUnitToDepotService();
-
-				service.UpdateUnitByDepotId(DrugUnitId, DepotId);
-				return View();
+				unitToDepotService.UpdateUnitByDepotId(DrugUnitId, DepotId);
+				return Redirect("/Home/MessageWindow?message=Changes saved.");
 			}
 			catch (Exception ex)
 			{
@@ -42,11 +45,8 @@ namespace iTechArt.TestApplication.Controllers
 			}
 		}
 
-		[HttpGet]
-		public ActionResult UpdateDrugUnitToDepot()
-		{ 
-			return Redirect("/Home/MessageWindow?message=Changes saved.");
-		}
+		
+
 
 	}
 }

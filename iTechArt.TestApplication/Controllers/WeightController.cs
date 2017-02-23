@@ -8,15 +8,18 @@ namespace Test_application_iTechArt.Controllers
 {
 	public class WeightController : Controller
     {
+		IWeightService weightService;
+		public WeightController(IWeightService service) {
+			weightService = service;
+		}
 		[HttpGet]
 		public ActionResult Weight()
 		{
 			try
 			{
-				IWeightService service = new WeightService();
 				WeightViewModel model = new WeightViewModel();
-				model.DrugTypes =service.GetDrugTypes();
-				model.Depots = service.GetDepots();
+				model.DrugTypes = weightService.GetDrugTypes();
+				model.Depots = weightService.GetDepots();
 				return View(model);
 			}
 			catch (Exception ex)
@@ -29,8 +32,7 @@ namespace Test_application_iTechArt.Controllers
 		{
 			try
 			{
-				IWeightService service = new WeightService();
-				var units = service.GetDrugUnitsForDepot(depotId, drugTypeId);
+				var units = weightService.GetDrugUnitsForDepot(depotId, drugTypeId);
 
 				return PartialView(units);
 			}

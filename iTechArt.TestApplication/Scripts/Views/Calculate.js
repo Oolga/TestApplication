@@ -1,6 +1,7 @@
 ﻿
 	$('button#calculate').click(function () {
-		var count = @Html.Raw(Json.Encode(@Model.DrugTypes.Count()));
+		var count = $('#count').val();
+		alert(count);
 		var depot=$('#DepotId').val();
 		var numbers = [];
 
@@ -11,5 +12,8 @@
 
 		var data={depotId:depot, numbers:numbers};
 
-		$('#results').load('UnitsSearch?'+ $.param(data, true));
+		$('#results').load('UnitsSearch?' + $.param(data, true));
+
 	});
+
+

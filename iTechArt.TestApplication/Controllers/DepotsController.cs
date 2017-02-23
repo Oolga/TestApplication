@@ -7,15 +7,19 @@ using System.Web.Mvc;
 namespace iTechArt.TestApplication.Controllers
 {
 	public class DepotsController : Controller
-    {
+	{
+		IDepotsService depotService;
+		public DepotsController(IDepotsService service) {
+			depotService = service;
+		}
+
 		[HttpGet]
 		public ActionResult Depots()
 		{
 			try
 			{
-				IDepotsService service = new DepotsService();
 				DepotsViewModel model = new DepotsViewModel();
-				model.Depots=service.GetDepots();
+				model.Depots=depotService.GetDepots();
 
 
 				return View(model);

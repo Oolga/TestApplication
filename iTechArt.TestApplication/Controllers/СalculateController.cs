@@ -9,15 +9,18 @@ namespace iTechArt.TestApplication.Controllers
 {
 	public class СalculateController : Controller
     {
+		ICalculateService calculateService;
+		public СalculateController(ICalculateService service) {
+			calculateService = service;
+		}
 		[HttpGet]
 		public ActionResult Сalculate()
 		{
 			try
 			{
-				ICalculateService service = new CalculateService();
 				CalculateViewModel model = new CalculateViewModel();
-				model.Depots = service.GetDepots();
-				model.DrugTypes = service.GetDrugTypes();
+				model.Depots = calculateService.GetDepots();
+				model.DrugTypes = calculateService.GetDrugTypes();
 
 				return View(model);
 			}
@@ -30,10 +33,9 @@ namespace iTechArt.TestApplication.Controllers
 		[HttpGet]
 		public ActionResult UnitsSearch(int depotId, List<int> numbers)
 		{
-			ICalculateService service = new CalculateService();
 			try
 			{
-				return PartialView(service.SearchDrugUnits(depotId,numbers));
+				return PartialView(calculateService.SearchDrugUnits(depotId,numbers));
 			}
 			catch (Exception ex)
 			{
