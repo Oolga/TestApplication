@@ -195,6 +195,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\Views\Calculate.js" />
+    <Content Include="Scripts\Views\DrugUnitToDepot.js" />
+    <Content Include="Scripts\Views\Weight.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -203,18 +206,6 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Scripts\Views\Web.config" />
-    <Content Include="Scripts\Views\_ViewStart.cshtml" />
-    <Content Include="Scripts\Views\Shared\Error.cshtml" />
-    <Content Include="Scripts\Views\Shared\_Layout.cshtml" />
-    <Content Include="Scripts\Views\Home\Depots.cshtml" />
-    <Content Include="Scripts\Views\Home\DrugUnitToDepot.cshtml" />
-    <Content Include="Scripts\Views\Home\Сalculate.cshtml" />
-    <Content Include="Scripts\Views\Home\UnitsSearch.cshtml" />
-    <Content Include="Scripts\Views\Home\Weight.cshtml" />
-    <Content Include="Scripts\Views\Home\ShowWeight.cshtml" />
-    <Content Include="Scripts\Views\Home\MessageWindow.cshtml" />
-    <Content Include="Scripts\Views\Home\Error.cshtml" />
     <Content Include="Views\Depots\Depots.cshtml" />
     <Content Include="Views\DrugUnitToDepot\DrugUnitToDepot.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />

@@ -33,14 +33,19 @@ namespace iTechArt.TestApplication.Controllers
 			{
 				IDrugUnitToDepotService service = new DrugUnitToDepotService();
 
-				service.UpdateUnitByDepotId(DrugUnitId,DepotId);
-
-				return Redirect("/Home/MessageWindow?message=Changes saved.");
+				service.UpdateUnitByDepotId(DrugUnitId, DepotId);
+				return View();
 			}
 			catch (Exception ex)
 			{
 				return View("/Home/Error", new HandleErrorInfo(ex, "DrugUnitToDepot", "UpdateDrugUnitToDepot"));
 			}
+		}
+
+		[HttpGet]
+		public ActionResult UpdateDrugUnitToDepot()
+		{ 
+			return Redirect("/Home/MessageWindow?message=Changes saved.");
 		}
 
 	}

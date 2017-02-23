@@ -6,6 +6,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <div id="modDialog" class="modal fade" >
 <div id="dialogContent" class="modal-dialog"></div>
 </div>
@@ -51,14 +52,3 @@
     </tbody>
 }
 </table>
-
-<script language="javascript" type="text/javascript">
-    $('button#Save').click(function () {
-        var id = $(this).data("text1");
-        var depot = $('select#' + id).val();
-        var data = {DrugUnitId:id, DepotId:depot};
-
-        $('#dialogContent').load('UpdateDrugUnitToDepot?' + $.param(data, true));
-        $('#modDialog').modal("show");
-    });
-</script>

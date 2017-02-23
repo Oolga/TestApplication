@@ -30,9 +30,12 @@
         </footer>
     </div>
 
-
+	@Scripts.Render("~/Scripts/Views/Calculate.js")
+	@Scripts.Render("~/Scripts/Views/DrugUnitToDepot.js")
+	@Scripts.Render("~/Scripts/Views/Weight.js")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
 </body>
 </html>
