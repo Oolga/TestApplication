@@ -9,7 +9,7 @@ namespace iTechArt.TestApplication.Controllers
 {
 	public class СalculateController : Controller
     {
-		// GET: Сalculate
+		[HttpGet]
 		public ActionResult Сalculate()
 		{
 			try
@@ -27,6 +27,7 @@ namespace iTechArt.TestApplication.Controllers
 			}
 
 		}
+		[HttpGet]
 		public ActionResult UnitsSearch(int depotId, List<int> numbers)
 		{
 			ICalculateService service = new CalculateService();

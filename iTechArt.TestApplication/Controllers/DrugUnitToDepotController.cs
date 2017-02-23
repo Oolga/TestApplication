@@ -9,7 +9,7 @@ namespace iTechArt.TestApplication.Controllers
 	public class DrugUnitToDepotController : Controller
     {
 
-		// GET: DrugUnitToDepot
+		[HttpGet]
 		public ActionResult DrugUnitToDepot()
 		{
 			try
@@ -26,7 +26,7 @@ namespace iTechArt.TestApplication.Controllers
 				return View("/Home/Error", new HandleErrorInfo(ex, "DrugUnitToDepot", "DrugUnitToDepot"));
 			}
 		}
-
+		[HttpPost]
 		public ActionResult UpdateDrugUnitToDepot(int DrugUnitId, int DepotId)
 		{
 			try

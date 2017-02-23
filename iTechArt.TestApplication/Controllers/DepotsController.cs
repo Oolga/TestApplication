@@ -8,7 +8,7 @@ namespace iTechArt.TestApplication.Controllers
 {
 	public class DepotsController : Controller
     {
-		// GET: Depots
+		[HttpGet]
 		public ActionResult Depots()
 		{
 			try

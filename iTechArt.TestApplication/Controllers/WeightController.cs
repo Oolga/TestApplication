@@ -8,7 +8,7 @@ namespace Test_application_iTechArt.Controllers
 {
 	public class WeightController : Controller
     {
-		// GET: Weight
+		[HttpGet]
 		public ActionResult Weight()
 		{
 			try
@@ -24,6 +24,7 @@ namespace Test_application_iTechArt.Controllers
 				return View("/Home/Error", new HandleErrorInfo(ex, "Weight", "Weight"));
 			}
 		}
+		[HttpGet]
 		public ActionResult ShowWeight(int depotId, int drugTypeId)
 		{
 			try
