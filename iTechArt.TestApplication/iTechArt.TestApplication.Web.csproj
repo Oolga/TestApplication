@@ -204,10 +204,10 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\Views\Calculate.js" />
-    <Content Include="Scripts\Views\Depots.js" />
-    <Content Include="Scripts\Views\DrugUnitToDepot.js" />
-    <Content Include="Scripts\Views\Weight.js" />
+    <Content Include="Scripts\Views\calculate.js" />
+    <Content Include="Scripts\Views\depots.js" />
+    <Content Include="Scripts\Views\drugUnitToDepot.js" />
+    <Content Include="Scripts\Views\weight.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

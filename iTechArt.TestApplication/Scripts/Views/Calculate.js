@@ -1,18 +1,17 @@
-﻿
+﻿(function () {
 	$('button#calculate').click(function () {
 		var count = $('#count').val();
-		var depot=$('#DepotId').val();
+		var depot = $('#DepotId').val();
 		var numbers = [];
 
-		for (var i = 1; i <= count; i++)
-		{
+		for (var i = 1; i <= count; i++) {
 			numbers.push($('#' + i).val());
 		}
 
-		var data={depotId:depot, numbers:numbers};
+		var data = { depotId: depot, numbers: numbers };
 
 		$('#results').load('UnitsSearch?' + $.param(data, true));
 
 	});
-
+})();
 
