@@ -10,5 +10,7 @@ namespace iTechArt.TestApplication.Services.Interfaces
 		IEnumerable<DrugUnit> GetDrugUnits();
 
 		void UpdateUnitByDepotId(int unitId, int depotId);
+
+		
 	}
 }

@@ -2,6 +2,7 @@
 using iTechArt.TestApplication.Services.Interfaces;
 using iTechArt.TestApplication.Web.ViewModels;
 using System;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace iTechArt.TestApplication.Controllers
@@ -20,8 +21,10 @@ namespace iTechArt.TestApplication.Controllers
 			try
 			{
 				DepotsViewModel model = new DepotsViewModel();
-				model.Depots=depotService.GetDepots();
+				model.CountDrugUnits = depotService.CetCount();
+				model.Depots = depotService.GetDepots();
 				model.DrugUnits = depotService.GetSomeDrugUnits(0, 10);
+				model.RenderItems = model.Depots.Count() > 0;
 
 				return View(model);
 			}
@@ -32,11 +35,18 @@ namespace iTechArt.TestApplication.Controllers
 		}
 
 		[HttpGet]
-		public ActionResult DepotsContent(int first, int count) {
+		public JsonResult DepotsContent(int first, int count) {
+
 			DepotsViewModel model = new DepotsViewModel();
+			model.CountDrugUnits = depotService.CetCount();
 			model.Depots = depotService.GetDepots();
 			model.DrugUnits = depotService.GetSomeDrugUnits(first, count);
-			return PartialView();
+
+			return new JsonResult()
+			{
+				Data = model,
+				JsonRequestBehavior = JsonRequestBehavior.AllowGet
+			};
 		}
 
 	}

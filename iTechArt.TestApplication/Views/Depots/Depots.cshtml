@@ -7,51 +7,9 @@
 }
 
 <br>
-<table class="table table-hover">
-    <thed>
-        <tr>
-            <th>Depot Name</th>
-            <th>Country Name</th>
-            <th>Drug Type Name</th>
-            <th>Drug Unit Id</th>
-            <th>Pick Number</th>
-        </tr>
-    </thed>
-    <tbody id="results">
-      @if (Model.Depots != null)
-	  {
-		  foreach (var item in (Model.Depots))
-		  {
+<button class="btn-success" id="previous">Previous</button>
+<div id="results" data-model="@Model.CountDrugUnits">
+</div>
 
-			  if (Model.DrugUnits.Count() != 0)
-			  {
-				  foreach (var unit in (ICollection<DrugUnit>)Model.DrugUnits)
-				  {
-					  if (unit.DepotId == item.Id)
-					  {
-					<tr>
-						<td>@unit.Depot.DepotName</td>
-						<td>@unit.Depot.Country.CountryName</td>
-						<td>@unit.DrugType.DrugTypeName</td>
-						<td>@unit.Id</td>
-						<td>@unit.PickNumber</td>
-					</tr>
-					  }
-				  }
-			  }
-			  else
-			  {
-				<tr>
-					<td>@item.DepotName</td>
-					<td>empty</td>
-					<td>empty</td>
-					<td>empty</td>
-					<td>empty</td>
-				</tr>
-			  }
+	<button class="btn-success" id="next">Next</button>
 
-		  }
-	  }
-    </tbody>
-</table>
-<button class="btn-default" id="show">Showe more</button>

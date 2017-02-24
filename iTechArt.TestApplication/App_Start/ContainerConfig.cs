@@ -20,7 +20,7 @@ namespace iTechArt.TestApplication.Web.App_Start
 			var builder = new ContainerBuilder();
 			builder.RegisterControllers(Assembly.GetExecutingAssembly());
 
-			builder.RegisterType<DepotRepository>().As<IDepotRepository>();
+			builder.RegisterType<DepotRepository>().As<IDepotRepository>().InstancePerRequest();
 			builder.RegisterType<DrugUnitRepository>().As<IDrugUnitRepository>();
 			builder.RegisterType<DrugTypeRepository>().As<IDrugTypeRepository>();
 

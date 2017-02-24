@@ -31,5 +31,11 @@ namespace iTechArt.TestApplication.Services.Domain
 			return drugUnitRepository.GetQueryableAll().Where(t=>t.DepotId.HasValue).OrderBy(t => t.DepotId).Skip(first).Take(count).ToList();
 		}
 
+
+		public int CetCount()
+		{
+			return drugUnitRepository.GetQueryableAll().Where(t => t.DepotId.HasValue).Count();
+		}
+
 	}
 }
