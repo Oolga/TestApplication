@@ -34,6 +34,7 @@ namespace iTechArt.TestApplication.Controllers
 		[HttpGet]
 		public ActionResult DepotsContent(int first, int count) {
 			DepotsViewModel model = new DepotsViewModel();
+			model.Depots = depotService.GetDepots();
 			model.DrugUnits = depotService.GetSomeDrugUnits(first, count);
 			return PartialView();
 		}

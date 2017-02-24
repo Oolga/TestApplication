@@ -28,7 +28,7 @@ namespace iTechArt.TestApplication.Services.Domain
 
 		public IEnumerable<DrugUnit> GetSomeDrugUnits(int first, int count)
 		{
-			return drugUnitRepository.GetQueryableAll().OrderBy(t => t.DepotId).SkipWhile(t => t.DepotId == null).Skip(first).Take(count).ToList();
+			return drugUnitRepository.GetQueryableAll().Where(t=>t.DepotId.HasValue).OrderBy(t => t.DepotId).Skip(first).Take(count).ToList();
 		}
 
 	}
