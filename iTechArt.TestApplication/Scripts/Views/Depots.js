@@ -5,6 +5,7 @@
 	var constCountDrugUntis;
 
 	var previousButton = $('button#previous');
+	var nextButton = $('button#next');
 
 	$(document).ready(function () {
 		countDrugUntis = $("#results").attr("data-model");
@@ -14,7 +15,7 @@
 		previousButton.hide();
 	});
 
-	$('button#next').click(function () {
+	nextButton.click(function () {
 		if (countDrugUntis > 0) {
 			first += 10;
 			countDrugUntis -= 10;
@@ -37,13 +38,13 @@
 			url: 'DepotsContent',
 			dataType: "html",
 			success: function (result) {
-				//$('#results').html(result);
+				$('#results').html(result);
 
 				if (countDrugUntis > 0) {
-					$('button#next').show();
+					nextButton.show();
 				}
 				else {
-					$('button#next').hide();
+					nextButton.hide();
 				}
 
 				if (constCountDrugUntis == countDrugUntis) {
