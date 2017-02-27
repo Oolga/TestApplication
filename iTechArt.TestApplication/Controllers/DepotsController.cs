@@ -1,9 +1,12 @@
-﻿using iTechArt.TestApplication.Services.Domain;
-using iTechArt.TestApplication.Services.Interfaces;
+﻿using iTechArt.TestApplication.Services.Interfaces;
 using iTechArt.TestApplication.Web.ViewModels;
+using Newtonsoft.Json;
 using System;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 
 namespace iTechArt.TestApplication.Controllers
 {
@@ -11,7 +14,8 @@ namespace iTechArt.TestApplication.Controllers
 	{
 		IDepotsService depotService;
 
-		public DepotsController(IDepotsService service) {
+		public DepotsController(IDepotsService service)
+		{
 			depotService = service;
 		}
 
@@ -35,19 +39,29 @@ namespace iTechArt.TestApplication.Controllers
 		}
 
 		[HttpGet]
-		public JsonResult DepotsContent(int first, int count) {
-
+		public JsonResult DepotsContent(int first, int count)
+		{
 			DepotsViewModel model = new DepotsViewModel();
 			model.CountDrugUnits = depotService.CetCount();
 			model.Depots = depotService.GetDepots();
 			model.DrugUnits = depotService.GetSomeDrugUnits(first, count);
+			model.RenderItems = model.Depots.Count() > 0;
+
+			var data = JsonConvert.SerializeObject(model, Formatting.None, new JsonSerializerSettings
+			{
+				ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+
+			});
 
 			return new JsonResult()
 			{
-				Data = model,
-				JsonRequestBehavior = JsonRequestBehavior.AllowGet
+				Data =data,
+				JsonRequestBehavior = JsonRequestBehavior.AllowGet,
+				MaxJsonLength = Int32.MaxValue
 			};
-		}
 
+
+
+		}
 	}
 }
