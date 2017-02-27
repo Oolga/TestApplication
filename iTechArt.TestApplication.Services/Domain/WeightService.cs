@@ -35,5 +35,19 @@ namespace iTechArt.TestApplication.Services.Domain
 
 			return units;
 		}
+
+		public int GetCountOfDepots()
+		{
+			return depotRepository.GetQueryableAll().Count();
+		}
+
+		public int GetCountOfDrugTypes()
+		{
+			return drugTypeRepository.GetQueryableAll().Count();
+		}
+
+		public int GetCountOfDrugUnis(int depotId, int drugTypeId) {
+			return drugUnitRepository.GetQueryableAll().Where(x => x.DepotId == depotId && x.DtugTypeId == drugTypeId).Count();
+		}
 	}
 }

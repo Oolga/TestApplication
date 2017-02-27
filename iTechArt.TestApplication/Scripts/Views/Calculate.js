@@ -3,8 +3,8 @@
 	var countDrugTypes = $('#count');
 	var selectedDepotId = $('#DepotId');
 	var results = $('#results');
-	var urlUnitsSearch = 'UnitsSearch?';
-	var urlErrors = 'Home/MessageWindow?';
+	var urlUnitsSearch = '../Сalculate/UnitsSearch';
+	var urlErrors = '../Home/MessageWindow?';
 
 	$('button#calculate').click(function () {
 		try {
@@ -15,8 +15,47 @@
 			for (var i = 1; i <= count; i++) {
 				numbers.push($('#' + i).val());
 			}
-			var data = { depotId: depot, numbers: numbers };
-			results.load(urlUnitsSearch + $.param(data, true));
+			var data = JSON.stringify( { depotId: depot, numbers: numbers });
+			$.ajax({
+				type: "GET",
+				dataType: "json",
+				traditional: true,
+				data: { depotId: depot, numbers: numbers },
+				url: urlUnitsSearch,
+				success: function (data) {
+					var model = JSON.parse(data);
+
+					var table = $("<table></table>").addClass("table table-hover");
+					var trThed = $("<tr></tr>");
+
+					trThed.append($("<th></th>").text("Drug Unit Id"));
+					trThed.append($("<th></th>").text("Pick Number"));
+					trThed.append($("<th></th>").text("Drug Type Name"));
+					trThed.append($("<th></th>").text("Depot Name"));
+
+					table.append(trThed);
+
+					var tbody = $("<tbody></tbody>");
+
+					if (model.RenderDrugUnits == true) {
+						$.each(model.DrugUnits, function (item) {
+							var tr = $("<tr></tr>");
+
+							tr.append($("<td></td>").text(model.DrugUnits[item].Id));
+							tr.append($("<td></td>").text(model.DrugUnits[item].PickNumber));
+							tr.append($("<td></td>").text(model.DrugUnits[item].DrugType.DrugTypeName));
+							tr.append($("<td></td>").text(model.DrugUnits[item].Depot.DepotName));
+
+							tbody.append(tr);
+						});
+					}
+					table.append(tbody);
+
+					$('#results').html(table);
+				}
+			});
+
+			//results.load(urlUnitsSearch + $.param(data, true));
 		}
 		catch (e)
 		{

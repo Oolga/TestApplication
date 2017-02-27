@@ -4,6 +4,7 @@ using iTechArt.TestApplication.DAL.Interfaces;
 using iTechArt.TestApplication.DAL;
 using System.Linq;
 using iTechArt.TestApplication.Services.Interfaces;
+using System;
 
 namespace iTechArt.TestApplication.Services.Domain
 {
@@ -29,7 +30,7 @@ namespace iTechArt.TestApplication.Services.Domain
 			return drugTypeRepository.GetAll();
 		}
 
-		public IEnumerable<DrugUnit> SearchDrugUnits(int depotId, List<int> numbers)
+		public IEnumerable<DrugUnit> SearchDrugUnits(int depotId, int[] numbers)
 		{
 			List<DrugUnit> units = new List<DrugUnit>();
 
@@ -44,5 +45,14 @@ namespace iTechArt.TestApplication.Services.Domain
 			return units;
 		}
 
+		public int GetCountOfDepots()
+		{
+			return drugTypeRepository.GetQueryableAll().Count();
+		}
+
+		public int GetCountOfDrugTypes()
+		{
+			return depotRepository.GetQueryableAll().Count();
+		}
 	}
 }

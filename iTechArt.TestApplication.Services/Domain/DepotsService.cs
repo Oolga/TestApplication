@@ -32,7 +32,7 @@ namespace iTechArt.TestApplication.Services.Domain
 		}
 
 
-		public int CetCount()
+		public int CetCountOfDrugUnits()
 		{
 			return drugUnitRepository.GetQueryableAll().Where(t => t.DepotId.HasValue).Count();
 		}

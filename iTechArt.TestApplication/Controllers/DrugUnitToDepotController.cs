@@ -23,12 +23,13 @@ namespace iTechArt.TestApplication.Controllers
 				DrugUnitToDepotViewModel model = new DrugUnitToDepotViewModel();
 				model.Depots = unitToDepotService.GetDepots();
 				model.DrugUnits = unitToDepotService.GetDrugUnits();
+				model.RenderDrugUnits = unitToDepotService.CetCountOfDrugUnits() > 0;
 
 				return View(model);
 			}
 			catch (Exception ex)
 			{
-				return View("/Home/Error", new HandleErrorInfo(ex, "DrugUnitToDepot", "DrugUnitToDepot"));
+				return View("../Home/Error", new HandleErrorInfo(ex, "DrugUnitToDepot", "DrugUnitToDepot"));
 			}
 		}
 		[HttpPost]
@@ -37,7 +38,7 @@ namespace iTechArt.TestApplication.Controllers
 			try
 			{
 				unitToDepotService.UpdateUnitByDepotId(drugUnitId, depotId);
-				return Redirect("/Home/MessageWindow?message=Changes saved.");
+				return Redirect("../Home/MessageWindow?message=Changes saved.");
 			}
 			catch (Exception ex)
 			{

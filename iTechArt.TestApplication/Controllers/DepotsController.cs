@@ -25,16 +25,17 @@ namespace iTechArt.TestApplication.Controllers
 			try
 			{
 				DepotsViewModel model = new DepotsViewModel();
-				model.CountDrugUnits = depotService.CetCount();
+				model.CountDrugUnits = depotService.CetCountOfDrugUnits();
 				model.Depots = depotService.GetDepots();
 				model.DrugUnits = depotService.GetSomeDrugUnits(0, 10);
-				model.RenderItems = model.Depots.Count() > 0;
+				model.RenderDrugUnits = model.DrugUnits.Count() > 0;
+				model.RenderDepots = model.Depots.Count() > 0;
 
 				return View(model);
 			}
 			catch (Exception ex)
 			{
-				return View("/Home/Error", new HandleErrorInfo(ex, "Depots", "Depots"));
+				return View("../Home/Error", new HandleErrorInfo(ex, "Depots", "Depots"));
 			}
 		}
 
@@ -42,10 +43,12 @@ namespace iTechArt.TestApplication.Controllers
 		public JsonResult DepotsContent(int first, int count)
 		{
 			DepotsViewModel model = new DepotsViewModel();
-			model.CountDrugUnits = depotService.CetCount();
+			
+			model.CountDrugUnits = depotService.CetCountOfDrugUnits();
 			model.Depots = depotService.GetDepots();
 			model.DrugUnits = depotService.GetSomeDrugUnits(first, count);
-			model.RenderItems = model.Depots.Count() > 0;
+			model.RenderDrugUnits = model.DrugUnits.Count() > 0;
+			model.RenderDepots = model.Depots.Count() > 0;
 
 			var data = JsonConvert.SerializeObject(model, Formatting.None, new JsonSerializerSettings
 			{

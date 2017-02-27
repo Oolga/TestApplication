@@ -38,5 +38,10 @@ namespace iTechArt.TestApplication.Services.Domain
 			return drugUnitRepository.GetQueryableAll().OrderBy(t => t.Id).Skip(first).Take(count).ToList();
 		}
 
+		public int CetCountOfDrugUnits()
+		{
+			return drugUnitRepository.GetQueryableAll().Count();
+		}
+
 	}
 }

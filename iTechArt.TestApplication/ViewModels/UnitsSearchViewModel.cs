@@ -6,9 +6,8 @@ using System.Web;
 
 namespace iTechArt.TestApplication.Web.ViewModels
 {
-	public class DrugUnitToDepotViewModel
+	public class UnitsSearchViewModel
 	{
-		public IEnumerable<Depot> Depots { get; set; }
 		public IEnumerable<DrugUnit> DrugUnits { get; set; }
 		public bool RenderDrugUnits { get; set; }
 	}

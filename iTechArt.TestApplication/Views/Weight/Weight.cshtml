@@ -10,7 +10,7 @@
 <div class="row">
     <div class="col-md-4">
         <label>Depot</label>
-        @if (Model.Depots!= null)
+        @if (Model.RenderDepots)
         {
             <select class="form-control" id="DepotId">
                 @foreach (var depot in Model.Depots)
@@ -23,7 +23,7 @@
         </div>
         <div class="col-md-4">
             <label>Drug type</label>
-        @if (Model.DrugTypes != null)
+        @if (Model.RenderDrugTypes)
 		{
             <select class="form-control" id="DrugType">
                 @foreach (var drugType in Model.DrugTypes)

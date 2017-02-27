@@ -11,8 +11,9 @@
 		countDrugUntis = $("#results").attr("data-model");
 		countDrugUntis -= 10;
 		constCountDrugUntis = countDrugUntis;
+		if (!isNaN(countDrugUntis)) 
+			update();
 
-		update();
 		previousButton.hide();
 	});
 
@@ -56,9 +57,9 @@
 
 				var tbody = $("<tbody></tbody>");
 
-				if (model.RenderItems == true) {
+				if (model.RenderDepots == true) {
 					$.each(model.Depots, function (item) {
-						if (model.CountDrugUnits != 0) {
+						if (model.RenderDrugUnits==true) {
 
 							$.each(model.DrugUnits, function (unit) {
 								var tr = $("<tr></tr>");

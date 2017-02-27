@@ -1,6 +1,7 @@
 ﻿using iTechArt.TestApplication.Services.Domain;
 using iTechArt.TestApplication.Services.Interfaces;
 using iTechArt.TestApplication.Web.ViewModels;
+using Newtonsoft.Json;
 using System;
 using System.Web.Mvc;
 
@@ -20,6 +21,9 @@ namespace Test_application_iTechArt.Controllers
 				WeightViewModel model = new WeightViewModel();
 				model.DrugTypes = weightService.GetDrugTypes();
 				model.Depots = weightService.GetDepots();
+				model.RenderDepots = weightService.GetCountOfDepots() > 0;
+				model.RenderDrugTypes = weightService.GetCountOfDrugTypes() > 0;
+
 				return View(model);
 			}
 			catch (Exception ex)
@@ -28,17 +32,34 @@ namespace Test_application_iTechArt.Controllers
 			}
 		}
 		[HttpGet]
-		public ActionResult ShowWeight(int depotId, int drugTypeId)
+		public JsonResult ShowWeight(int depotId, int drugTypeId)
 		{
 			try
 			{
-				var units = weightService.GetDrugUnitsForDepot(depotId, drugTypeId);
+				ShowWeightViewModel model = new ShowWeightViewModel();
+				model.DrugUnits = weightService.GetDrugUnitsForDepot(depotId, drugTypeId);
+				model.RenderDrugUnits = weightService.GetCountOfDrugUnis(depotId,drugTypeId)>0;
 
-				return PartialView(units);
+				var data = JsonConvert.SerializeObject(model, Formatting.None, new JsonSerializerSettings
+				{
+					ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+
+				});
+
+				return new JsonResult()
+				{
+					Data = data,
+					JsonRequestBehavior = JsonRequestBehavior.AllowGet,
+					MaxJsonLength = Int32.MaxValue
+				};
+
+
+
+				//return PartialView(model);
 			}
 			catch (Exception ex)
 			{
-				return View("/Home/Error", new HandleErrorInfo(ex, "Weight", "ShowWeight"));
+				return new JsonResult();//View("/Home/Error", new HandleErrorInfo(ex, "Weight", "ShowWeight"));
 			}
 		}
 

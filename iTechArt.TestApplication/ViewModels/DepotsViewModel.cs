@@ -11,6 +11,7 @@ namespace iTechArt.TestApplication.Web.ViewModels
 		public int CountDrugUnits { get; set; }
 		public IEnumerable<Depot> Depots { get; set; }
 		public IEnumerable<DrugUnit> DrugUnits { get; set; }
-		public bool RenderItems { get; set; }
+		public bool RenderDepots { get; set; }
+		public bool RenderDrugUnits { get; set; }
 	}
 }

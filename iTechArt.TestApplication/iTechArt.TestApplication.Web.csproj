@@ -181,6 +181,8 @@
     <Compile Include="ViewModels\CalculateViewModel.cs" />
     <Compile Include="ViewModels\DepotsViewModel.cs" />
     <Compile Include="ViewModels\DrugUnitToDepotViewModel.cs" />
+    <Compile Include="ViewModels\ShowWeightViewModel.cs" />
+    <Compile Include="ViewModels\UnitsSearchViewModel.cs" />
     <Compile Include="ViewModels\WeightViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

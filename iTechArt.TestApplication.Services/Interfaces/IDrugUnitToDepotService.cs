@@ -11,6 +11,6 @@ namespace iTechArt.TestApplication.Services.Interfaces
 
 		void UpdateUnitByDepotId(int unitId, int depotId);
 
-		
+		int CetCountOfDrugUnits();
 	}
 }

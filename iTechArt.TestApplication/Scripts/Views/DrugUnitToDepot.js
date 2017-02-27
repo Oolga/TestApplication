@@ -1,9 +1,10 @@
 ﻿(function () {
 	'use strict';
-	var urlErrors = 'Home/MessageWindow?';
+	var urlErrors = '../Home/MessageWindow?';
 	var dialogContent = $('#dialogContent');
 	var modalDialog = $('#modDialog');
 	var buttonSave = $('button#Save');
+	modalDialog.hide();
 
 	buttonSave.click(function () {
 		try {
@@ -13,7 +14,7 @@
 
 			$.post('UpdateDrugUnitToDepot', $.param(data, true), function (data) {
 				dialogContent.html(data);
-				modalDialog.modal("show");
+				modalDialog.modal('show');
 			});
 		}
 		catch (e)
@@ -21,4 +22,4 @@
 			$.get(urlErrors + $.param({message:'name: '+e.name+' message: '+e.message},true));
 		}
 	});
-});
+})();

@@ -7,6 +7,10 @@ namespace iTechArt.TestApplication.Services.Interfaces
 	{
 		IEnumerable<Depot> GetDepots();
 		IEnumerable<DrugType> GetDrugTypes();
-		IEnumerable<DrugUnit> SearchDrugUnits(int depotId, List<int> numbers);
+		IEnumerable<DrugUnit> SearchDrugUnits(int depotId, int[] numbers);
+
+		int GetCountOfDepots();
+		int GetCountOfDrugTypes();
+
 	}
 }
