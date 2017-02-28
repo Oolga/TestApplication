@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.5.2.0\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -55,6 +59,13 @@
       <Project>{366737fa-2360-4cf1-8d82-fd26ee62cd78}</Project>
       <Name>iTechArt.TestApplication.DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\iTechArt.TestApplication.DTO\iTechArt.TestApplication.DTO.csproj">
+      <Project>{21c9c998-279d-4e9d-8266-08e807c86b0e}</Project>
+      <Name>iTechArt.TestApplication.DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -53,7 +53,6 @@ namespace iTechArt.TestApplication.Controllers
 			var data = JsonConvert.SerializeObject(model, Formatting.None, new JsonSerializerSettings
 			{
 				ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-
 			});
 
 			return new JsonResult()
@@ -62,8 +61,6 @@ namespace iTechArt.TestApplication.Controllers
 				JsonRequestBehavior = JsonRequestBehavior.AllowGet,
 				MaxJsonLength = Int32.MaxValue
 			};
-
-
 
 		}
 	}

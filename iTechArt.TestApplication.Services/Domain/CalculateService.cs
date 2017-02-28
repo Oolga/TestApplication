@@ -5,6 +5,8 @@ using iTechArt.TestApplication.DAL;
 using System.Linq;
 using iTechArt.TestApplication.Services.Interfaces;
 using System;
+using iTechArt.TestApplication.DTO.Models;
+using AutoMapper;
 
 namespace iTechArt.TestApplication.Services.Domain
 {
@@ -20,17 +22,17 @@ namespace iTechArt.TestApplication.Services.Domain
 			this.drugUnitRepository = drugUnitRepository;
 		}
 
-		public IEnumerable<Depot> GetDepots()
+		public IEnumerable<DepotDTO> GetDepots()
 		{
-			return depotRepository.GetAll();
+			return depotRepository.GetAll().Select(a => AutoMapper.Mapper.Map<Depot, DepotDTO>(a)).ToList();
 		}
 
-		public IEnumerable<DrugType> GetDrugTypes()
+		public IEnumerable<DrugTypeDTO> GetDrugTypes()
 		{
-			return drugTypeRepository.GetAll();
+			return drugTypeRepository.GetAll().Select(a => AutoMapper.Mapper.Map<DrugType, DrugTypeDTO>(a)).ToList();
 		}
 
-		public IEnumerable<DrugUnit> SearchDrugUnits(int depotId, int[] numbers)
+		public IEnumerable<DrugUnitDTO> SearchDrugUnits(int depotId, int[] numbers)
 		{
 			List<DrugUnit> units = new List<DrugUnit>();
 
@@ -42,7 +44,7 @@ namespace iTechArt.TestApplication.Services.Domain
 						units.Add((drugUnitRepository.GetQueryableAll().Where(x => x.DepotId == depotId && x.DtugTypeId == (i + 1))).ToList<DrugUnit>().OrderBy(x => x.PickNumber).ElementAt(j));
 				}
 			}
-			return units;
+			return units.Select(a => Mapper.Map<DrugUnit, DrugUnitDTO>(a)).ToList();
 		}
 
 		public int GetCountOfDepots()

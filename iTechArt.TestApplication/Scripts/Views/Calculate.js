@@ -43,8 +43,8 @@
 
 							tr.append($("<td></td>").text(model.DrugUnits[item].Id));
 							tr.append($("<td></td>").text(model.DrugUnits[item].PickNumber));
-							tr.append($("<td></td>").text(model.DrugUnits[item].DrugType.DrugTypeName));
-							tr.append($("<td></td>").text(model.DrugUnits[item].Depot.DepotName));
+							tr.append($("<td></td>").text(model.DrugUnits[item].DrugTypeName));
+							tr.append($("<td></td>").text(model.DrugUnits[item].DepotName));
 
 							tbody.append(tr);
 						});
@@ -54,8 +54,6 @@
 					$('#results').html(table);
 				}
 			});
-
-			//results.load(urlUnitsSearch + $.param(data, true));
 		}
 		catch (e)
 		{

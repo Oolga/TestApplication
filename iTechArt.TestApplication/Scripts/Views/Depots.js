@@ -1,4 +1,6 @@
 ﻿(function () {
+
+	'use strict';
 	var first = 0;
 	var count = 10;
 	var countDrugUntis;
@@ -41,7 +43,7 @@
 			data: { first: first, count: count },
 			url: '../Depots/DepotsContent',
 			success: function (data) {
-				model = JSON.parse(data);
+				var model = JSON.parse(data);
 
 				var table = $("<table></table>").addClass("table table-hover");
 				var trThed = $("<tr></tr>");
@@ -66,7 +68,7 @@
 								if (model.DrugUnits[unit].DepotId == model.Depots[item].Id) {
 									tr.append($("<td></td>").text(model.Depots[item].DepotName));
 									tr.append($("<td></td>").text(model.Depots[item].CountryName));
-									tr.append($("<td></td>").text(model.DrugUnits[unit].DrugType.DrugTypeName));
+									tr.append($("<td></td>").text(model.DrugUnits[unit].DrugTypeName));
 									tr.append($("<td></td>").text(model.DrugUnits[unit].Id));
 									tr.append($("<td></td>").text(model.DrugUnits[unit].PickNumber));
 								}

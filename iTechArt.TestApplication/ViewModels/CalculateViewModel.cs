@@ -1,14 +1,12 @@
 ﻿using iTechArt.TestApplication.DAL.EF;
-using System;
+using iTechArt.TestApplication.DTO.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace iTechArt.TestApplication.Web.ViewModels
 {
 	public class CalculateViewModel
 	{
-		public IEnumerable<Depot> Depots { get; set; }
+		public IEnumerable<DepotDTO> Depots { get; set; }
 		public IEnumerable<DrugType> DrugTypes { get; set; }
 		public bool RenderDrugTypes { get; set; }
 		public bool RenderDepots { get; set; }

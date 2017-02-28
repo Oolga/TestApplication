@@ -1,4 +1,5 @@
-﻿using iTechArt.TestApplication.Web.App_Start;
+﻿using iTechArt.TestApplication.Web;
+using iTechArt.TestApplication.Web.App_Start;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,7 @@ namespace iTechArtTestApplication
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
 			ContainerConfig.RegisterContainer();
+			AutoMapperWebConfiguration.Configure();
 		}
     }
 }

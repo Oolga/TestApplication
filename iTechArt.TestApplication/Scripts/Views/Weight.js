@@ -49,8 +49,6 @@
 					$('#results').html(table);
 				}
 			});
-
-			//$('#results').load(weightUrl + $.param(data, true));
 	}
 		catch (e)
 	{
