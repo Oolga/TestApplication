@@ -26,6 +26,19 @@ namespace iTechArtTestApplication
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
-        }
+
+			bundles.Add(new ScriptBundle("~/bundles/calculate").Include(
+					  "~/Scripts/Views/calculate.js"));
+			bundles.Add(new ScriptBundle("~/bundles/depots").Include(
+					  "~/Scripts/Views/depots.js"));
+			bundles.Add(new ScriptBundle("~/bundles/requests").Include(
+					  "~/Scripts/Views/requests.js"));
+			bundles.Add(new ScriptBundle("~/bundles/weight").Include(
+					  "~/Scripts/Views/weight.js"));
+			bundles.Add(new ScriptBundle("~/bundles/drugUnitToDepot").Include(
+					  "~/Scripts/Views/drugUnitToDepot.js"));
+			bundles.Add(new ScriptBundle("~/bundles/jQueryTemplate").Include(
+					  "~/Scripts/jQueryTemplate/jquery.tmpl.js"));
+		}
     }
 }

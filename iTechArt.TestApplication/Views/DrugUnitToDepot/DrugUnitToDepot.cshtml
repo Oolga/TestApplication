@@ -1,4 +1,4 @@
-﻿@using iTechArt.TestApplication.DAL.EF
+﻿@using iTechArt.TestApplication.DTO.Models
 @using iTechArt.TestApplication.Web.ViewModels
 @model DrugUnitToDepotViewModel
 @{
@@ -26,12 +26,12 @@
 {
     <tbody>
        
-            @foreach (DrugUnit item in Model.DrugUnits)
+            @foreach (DrugUnitDTO item in Model.DrugUnits)
             {
                 <tr>
                     <td> @item.Id </td>
                     <td> @item.PickNumber </td>
-                    <td> @item.DrugType.DrugTypeName </td>
+                    <td> @item.DrugTypeName </td>
                     <td>
                         <select class="form-control" id="@item.Id">
                             @foreach (var depot in Model.Depots)
@@ -52,3 +52,6 @@
     </tbody>
 }
 </table>
+
+
+@Scripts.Render("~/bundles/drugUnitToDepot")

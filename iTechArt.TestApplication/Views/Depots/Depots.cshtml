@@ -7,12 +7,52 @@
 }
 
 <br>
-<button class="btn-success" id="previous">Previous</button>
-<div id="results" data-model="@Model.CountDrugUnits">
+<button class="btn-success previous">Previous</button>
+<div  >
+	<table class="table table-hover">
 
+		<tr>
+			<th>Depot Name</th>
+			<th>Country Name</th>
+			<th>Drug Type Name</th>
+			<th>Drug Unit Id</th>
+			<th>Pick Number</th>
+		</tr>
+		<tbody class="results" data-model="@Model.CountDrugUnits">
+		</tbody>
+	</table>
 
-	
 </div>
 
-	<button class="btn-success" id="next">Next</button>
+	<button class="btn-success next">Next</button>
+
+	<script id="depotsTableTemplate" type="text/html">
+		
+		{{if RenderDrugUnits}}
+			{{each DrugUnits}}
+				<tr>
+					<td> ${$value.DepotName}</td>
+					<td>${$value.CountryName}</td>
+					<td>${$value.DrugTypeName}</td>
+					<td>${$value.Id}</td>
+					<td>${$value.PickNumber}</td>
+				</tr>
+			{{/each}}
+		{{else}}
+			{{each Depots}}
+				<tr>
+					<td> ${$value.DepotName}</td>
+					<td>empty</td>
+					<td>empty</td>
+					<td>empty</td>
+					<td>empty</td>
+				</tr>
+			{{/each}}
+		{{/if}}
+	
+
+	</script>
+
+@Scripts.Render("~/bundles/depots")
+
 

@@ -1,6 +1,7 @@
 ﻿(function () {
 	'use strict';
 	var urlErrors = '../Home/MessageWindow?';
+	var urlUpdate = '../DrugUnitToDepot/UpdateDrugUnitToDepot';
 	var dialogContent = $('#dialogContent');
 	var modalDialog = $('#modDialog');
 	var buttonSave = $('button#Save');
@@ -12,7 +13,7 @@
 			var depot = $('select#' + id).val();
 			var data = { DrugUnitId: id, DepotId: depot };
 
-			$.post('UpdateDrugUnitToDepot', $.param(data, true), function (data) {
+			$.post(urlUpdate, $.param(data, true), function (data) {
 				dialogContent.html(data);
 				modalDialog.modal('show');
 			});

@@ -12,7 +12,7 @@
         <label>Depot</label>
         @if (Model.RenderDepots)
         {
-            <select class="form-control" id="DepotId">
+            <select class="form-control DepotId">
                 @foreach (var depot in Model.Depots)
                 {
                     <option value="@depot.Id">@depot.DepotName</option>
@@ -25,7 +25,7 @@
             <label>Drug type</label>
         @if (Model.RenderDrugTypes)
 		{
-            <select class="form-control" id="DrugType">
+            <select class="form-control DrugType">
                 @foreach (var drugType in Model.DrugTypes)
                 {
                     <option value="@drugType.Id">@drugType.DrugTypeName</option>
@@ -35,10 +35,40 @@
         </div>
         <div class="col-md-4">
             <br>
-            <button class="btn btn-success" id="Show">Show</button>
+            <button class="btn btn-success Show">Show</button>
         </div>
     </div>
 <br>
-<div id="results"></div>
+<div class="results">
+	
 
+
+</div>
+
+<script id="weightTableTemplate" type="text/html">
+	<table class="table table-hover">
+
+		<tr>
+			<th>Drug Unit Id</th>
+			<th>Pick Number</th>
+			<th>Drug Type Name</th>
+			<th>Depot Name</th>
+			<th>Weight, kg</th>
+		</tr>
+		<tbody>
+			{{if RenderDrugUnits}}
+			{{each DrugUnits}}
+			<tr>
+				<td>${$value.Id}</td>
+				<td>${$value.PickNumber}</td>
+				<td>${$value.DrugTypeName}</td>
+				<td>${$value.DepotName}</td>
+				<td>${$value.Weight}</td>
+			</tr>
+			{{/each}}
+			{{/if}}
+		</tbody>
+	</table>
+</script>
+	@Scripts.Render("~/bundles/weight")
 

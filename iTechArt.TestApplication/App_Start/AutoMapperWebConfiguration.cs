@@ -14,8 +14,10 @@ namespace iTechArt.TestApplication.Web
 		{
 			Mapper.Initialize(cfg => {
 				cfg.CreateMap< Depot, DepotDTO>().ForMember(a=>a.CountryName,x=>x.MapFrom(u=>u.Country.CountryName));
-				cfg.CreateMap< DrugUnit, DrugUnitDTO>().ForMember(a=>a.DrugTypeName,x=>x.MapFrom(u=>u.DrugType.DrugTypeName));
-				cfg.CreateMap<DrugUnit, DrugUnitDTO>();
+				cfg.CreateMap< DrugUnit, DrugUnitDTO>().ForMember(a=>a.DrugTypeName,x=>x.MapFrom(u=>u.DrugType.DrugTypeName))
+				.ForMember(a=>a.Weight,x=>x.MapFrom(u=>u.DrugType.Weight))
+				.ForMember(a=>a.DepotName,x=>x.MapFrom(u=>u.Depot.DepotName));
+				cfg.CreateMap<DrugType, DrugTypeDTO>();
 			});
 		}
 	}

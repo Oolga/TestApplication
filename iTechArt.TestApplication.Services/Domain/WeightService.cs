@@ -5,6 +5,7 @@ using iTechArt.TestApplication.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using iTechArt.TestApplication.DTO.Models;
 
 namespace iTechArt.TestApplication.Services.Domain
 {
@@ -19,19 +20,19 @@ namespace iTechArt.TestApplication.Services.Domain
 			this.drugTypeRepository = drugTypeRepository;
 			this.drugUnitRepository = drugUnitRepository;
 		}
-		public IEnumerable<Depot> GetDepots()
+		public IEnumerable<DepotDTO> GetDepots()
 		{
-			return depotRepository.GetAll();
+			return depotRepository.GetAll().Select(a => AutoMapper.Mapper.Map<Depot, DepotDTO>(a)).ToList();
 		}
 
-		public IEnumerable<DrugType> GetDrugTypes()
+		public IEnumerable<DrugTypeDTO> GetDrugTypes()
 		{
-			return drugTypeRepository.GetAll();
+			return drugTypeRepository.GetAll().Select(a => AutoMapper.Mapper.Map<DrugType, DrugTypeDTO>(a)).ToList();
 		}
-		public IEnumerable<DrugUnit> GetDrugUnitsForDepot(int depotId, int drugTypeId)
+		public IEnumerable<DrugUnitDTO> GetDrugUnitsForDepot(int depotId, int drugTypeId)
 		{
-			List<DrugUnit> units = drugUnitRepository.GetQueryableAll().Where(x => x.DepotId == depotId && x.DtugTypeId == drugTypeId).ToList<DrugUnit>();
-			units.ForEach(x => x.DrugType.Weight = Math.Round(x.DrugType.Weight / 2.2, 2));
+			List<DrugUnitDTO> units = drugUnitRepository.GetQueryableAll().Where(x => x.DepotId == depotId && x.DtugTypeId == drugTypeId).ToList<DrugUnit>().Select(a => AutoMapper.Mapper.Map<DrugUnit, DrugUnitDTO>(a)).ToList(); 
+			units.ForEach(x => x.Weight = Math.Round(x.Weight / 2.2, 2));
 
 			return units;
 		}

@@ -1,4 +1,5 @@
 ﻿using iTechArt.TestApplication.DAL.EF;
+using iTechArt.TestApplication.DTO.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,8 +9,8 @@ namespace iTechArt.TestApplication.Web.ViewModels
 {
 	public class WeightViewModel
 	{
-		public IEnumerable<Depot> Depots { get; set; }
-		public IEnumerable<DrugType> DrugTypes { get; set; }
+		public IEnumerable<DepotDTO> Depots { get; set; }
+		public IEnumerable<DrugTypeDTO> DrugTypes { get; set; }
 		public bool RenderDrugTypes { get; set; }
 		public bool RenderDepots { get; set; }
 	}

@@ -11,7 +11,7 @@
         <label>Depot</label>
         @if (Model.Depots!= null)
         { 
-            <select id="DepotId" class="form-control">
+            <select class="form-control DepotId">
                 @foreach (var depot in Model.Depots)
                 {
                     <option value="@depot.Id">@depot.DepotName</option>
@@ -20,15 +20,15 @@
             </select>
         }
     </div>
-	<input type="hidden" id="count" value="@Model.DrugTypes.Count()">
+	<input type="hidden" value="@Model.DrugTypes.Count()" class="count">
     <div  class="col-md-4" >
         @if (Model.DrugTypes.Count()!= 0)
         {
-            <div id="DrugTypes">
+            <div class="DrugTypes">
                 @foreach (var drugType in Model.DrugTypes)
                 {
                     <label>@drugType.DrugTypeName</label>
-                    <input id="@drugType.Id" value="" class="form-control" />
+                    <input value="" class="form-control @drugType.Id" />
                 }
             </div>
         }
@@ -39,9 +39,35 @@
     </div>
     <div class="col-md-4">
         <br>
-        <button id="calculate" class="btn btn-success">Calculate</button>
+        <button class="btn btn-success calculate">Calculate</button>
     </div>
 </div>
 <br>
-<div id="results"></div>
+<div class="results"></div>
 
+
+<script id="calculateTableTemplate" type="text/html">
+	<table class="table table-hover">
+
+		<tr>
+			<th>Drug Unit Id</th>
+			<th>Pick Number</th>
+			<th>Drug Type Name</th>
+			<th>Depot Name</th>
+		</tr>
+		<tbody>
+			{{if RenderDrugUnits}}
+			{{each DrugUnits}}
+			<tr>
+				<td>${$value.Id}</td>
+				<td>${$value.PickNumber}</td>
+				<td>${$value.DrugTypeName}</td>
+				<td>${$value.DepotName}</td>
+			</tr>
+			{{/each}}
+			{{/if}}
+		</tbody>
+	</table>
+</script>
+
+@Scripts.Render("~/bundles/calculate")

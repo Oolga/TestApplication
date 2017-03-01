@@ -1,13 +1,14 @@
 ﻿using iTechArt.TestApplication.DAL.EF;
+using iTechArt.TestApplication.DTO.Models;
 using System.Collections.Generic;
 
 namespace iTechArt.TestApplication.Services.Interfaces
 {
 	public interface IDrugUnitToDepotService
 	{
-		IEnumerable<Depot> GetDepots();
+		IEnumerable<DepotDTO> GetDepots();
 
-		IEnumerable<DrugUnit> GetDrugUnits();
+		IEnumerable<DrugUnitDTO> GetDrugUnits();
 
 		void UpdateUnitByDepotId(int unitId, int depotId);
 

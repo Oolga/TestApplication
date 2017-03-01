@@ -38,7 +38,7 @@ namespace iTechArt.TestApplication.Controllers
 		{
 			try
 			{
-				 UnitsSearchViewModel model = new UnitsSearchViewModel();
+				UnitsSearchViewModel model = new UnitsSearchViewModel();
 				model.DrugUnits = calculateService.SearchDrugUnits(depotId,numbers);
 				model.RenderDrugUnits = !model.DrugUnits.Equals(null);
 
@@ -56,8 +56,6 @@ namespace iTechArt.TestApplication.Controllers
 					MaxJsonLength = Int32.MaxValue
 				};
 
-
-				//return PartialView(model);
 			}
 			catch (Exception ex)
 			{

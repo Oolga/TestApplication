@@ -10,8 +10,10 @@ namespace iTechArt.TestApplication.DTO.Models
 	{
 		public int Id { get; set; }
 		public Nullable<int> DepotId { get; set; }
+		public string DepotName { get; set; }
 		public Nullable<int> PickNumber { get; set; }
 		public string DrugTypeName { get; set; }
+		public double Weight { get; set; }
 
 	}
 }

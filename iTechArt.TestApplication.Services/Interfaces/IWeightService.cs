@@ -1,4 +1,5 @@
 ﻿using iTechArt.TestApplication.DAL.EF;
+using iTechArt.TestApplication.DTO.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,9 @@ namespace iTechArt.TestApplication.Services.Interfaces
 {
 	public interface IWeightService
 	{
-		IEnumerable<Depot> GetDepots();
-		IEnumerable<DrugType> GetDrugTypes();
-		IEnumerable<DrugUnit> GetDrugUnitsForDepot(int depotId, int drugTypeId);
+		IEnumerable<DepotDTO> GetDepots();
+		IEnumerable<DrugTypeDTO> GetDrugTypes();
+		IEnumerable<DrugUnitDTO> GetDrugUnitsForDepot(int depotId, int drugTypeId);
 		int GetCountOfDepots();
 		int GetCountOfDrugTypes();
 		int GetCountOfDrugUnis(int depotId, int drugTypeId);
