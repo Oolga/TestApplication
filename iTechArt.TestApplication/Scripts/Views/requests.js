@@ -8,9 +8,8 @@
 				data: data,
 				url: url,
 				success: function (data) {
-					var model = JSON.parse(data);
 					if (callBackFunction != undefined && typeof callBackFunction == "function") {
-						callBackFunction(model);
+						callBackFunction(data);
 					}
 				}
 			});

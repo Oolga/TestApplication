@@ -1,16 +1,13 @@
 ﻿using iTechArt.TestApplication.DAL.EF;
-using iTechArt.TestApplication.DAL.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Data.Entity.Validation;
 using System.Linq;
 
 namespace iTechArt.TestApplication.DAL.Repositories
 {
 	public abstract class BaseRepository<T> where T: BaseEntity
 	{
-		private readonly EFModel _context;
+		protected readonly EFModel _context;
 		private IDbSet<T> _entities;
 
 		public BaseRepository()
@@ -18,7 +15,7 @@ namespace iTechArt.TestApplication.DAL.Repositories
 			this._context = new EFModel();
 		}
 
-		private IDbSet<T> Entities
+		protected IDbSet<T> Entities
 		{
 			get { return _entities ?? (_entities = _context.Set<T>()); }
 		}

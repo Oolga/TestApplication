@@ -1,5 +1,4 @@
-﻿using iTechArt.TestApplication.DAL.EF;
-using iTechArt.TestApplication.DTO.Models;
+﻿using iTechArt.TestApplication.DTO.Models;
 using System.Collections.Generic;
 
 namespace iTechArt.TestApplication.Web.ViewModels

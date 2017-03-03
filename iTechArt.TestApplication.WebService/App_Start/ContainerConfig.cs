@@ -7,13 +7,13 @@ using iTechArt.TestApplication.Services.Interfaces;
 using System.Reflection;
 using System.Web.Mvc;
 
-namespace iTechArt.TestApplication.Web.App_Start
+namespace iTechArt.TestApplication.WebService.App_Start
 {
 	public class ContainerConfig
 	{
 		public static void RegisterContainer()
 		{
-			var builder = new ContainerBuilder();
+			var builder = new Autofac.ContainerBuilder();
 			builder.RegisterControllers(Assembly.GetExecutingAssembly());
 
 			builder.RegisterType<DepotRepository>().As<IDepotRepository>().InstancePerRequest();

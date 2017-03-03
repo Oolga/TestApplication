@@ -11,7 +11,7 @@
 	var results = $(".results");
 	var tableTemplate = $("#depotsTableTemplate");
 
-	var urlGetDepots = '../Depots/DepotsContent';
+	var urlGetDepots = "http://localhost:520/api/depot/GetDepotsContent";
 
 	$(document).ready(function () {
 		countDrugUntis = results.attr("data-model");
@@ -44,7 +44,7 @@
 
 		results.empty();
 
-		tableTemplate.tmpl(model)
+		tableTemplate.tmpl(model.Data)
 		.appendTo(results);
 
 		if (countDrugUntis > 0) {
@@ -64,7 +64,7 @@
 	};
 
 	function update() {
-		var data={ first: first, count: count };
+		var data = { first: first, count: count };
 		requests.requestGET(urlGetDepots, data, renderTable);
 	};
 })();

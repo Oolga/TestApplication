@@ -1,5 +1,4 @@
-﻿using iTechArt.TestApplication.DAL;
-using iTechArt.TestApplication.DAL.Interfaces;
+﻿using iTechArt.TestApplication.DAL.Interfaces;
 using iTechArt.TestApplication.DAL.EF;
 using iTechArt.TestApplication.Services.Interfaces;
 using System;

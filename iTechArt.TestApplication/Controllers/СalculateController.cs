@@ -1,9 +1,7 @@
-﻿using iTechArt.TestApplication.Services.Domain;
-using iTechArt.TestApplication.Services.Interfaces;
+﻿using iTechArt.TestApplication.Services.Interfaces;
 using iTechArt.TestApplication.Web.ViewModels;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace iTechArt.TestApplication.Controllers

@@ -7,8 +7,8 @@
 }
 
 
-<div id="modDialog" class="modal fade" >
-<div id="dialogContent" class="modal-dialog"></div>
+<div class="modal fade modDialog" >
+<div class="modal-dialog dialogContent"></div>
 </div>
 
 <br>
@@ -33,7 +33,7 @@
                     <td> @item.PickNumber </td>
                     <td> @item.DrugTypeName </td>
                     <td>
-                        <select class="form-control" id="@item.Id">
+                        <select class="form-control @item.Id">
                             @foreach (var depot in Model.Depots)
                             {
                                 <option value="@depot.Id">@depot.DepotName</option>
@@ -42,7 +42,7 @@
                          </select>
                     </td>
                     <td>
-                     <button id="Save" type="submit" class="btn btn-success" data-text1=@item.Id>Save</button>
+                     <button type="submit" class="btn btn-success Save" data-text1=@item.Id>Save</button>
                     </td>
                 </tr>
              

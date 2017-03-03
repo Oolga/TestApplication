@@ -1,5 +1,4 @@
-﻿using iTechArt.TestApplication.Services.Domain;
-using iTechArt.TestApplication.Services.Interfaces;
+﻿using iTechArt.TestApplication.Services.Interfaces;
 using iTechArt.TestApplication.Web.ViewModels;
 using System;
 using System.Web.Mvc;
@@ -32,17 +31,17 @@ namespace iTechArt.TestApplication.Controllers
 				return View("../Home/Error", new HandleErrorInfo(ex, "DrugUnitToDepot", "DrugUnitToDepot"));
 			}
 		}
-		[HttpPost]
-		public ActionResult UpdateDrugUnitToDepot(int drugUnitId, int depotId)
+		[HttpGet]
+		public ActionResult UpdateDrugUnitToDepot()
 		{
 			try
 			{
-				unitToDepotService.UpdateUnitByDepotId(drugUnitId, depotId);
+				//unitToDepotService.UpdateUnitByDepotId(drugUnitId, depotId);
 				return Redirect("../Home/MessageWindow?message=Changes saved.");
 			}
 			catch (Exception ex)
 			{
-				return View("/Home/Error", new HandleErrorInfo(ex, "DrugUnitToDepot", "UpdateDrugUnitToDepot"));
+				return View("../Home/Error", new HandleErrorInfo(ex, "DrugUnitToDepot", "UpdateDrugUnitToDepot"));
 			}
 		}
 

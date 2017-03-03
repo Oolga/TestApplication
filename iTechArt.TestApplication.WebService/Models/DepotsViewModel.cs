@@ -1,7 +1,10 @@
 ﻿using iTechArt.TestApplication.DTO.Models;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 
-namespace iTechArt.TestApplication.Web.ViewModels
+namespace iTechArt.TestApplication.WebService.Models
 {
 	public class DepotsViewModel
 	{

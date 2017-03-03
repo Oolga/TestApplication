@@ -32,7 +32,7 @@ namespace iTechArt.TestApplication.Services.Domain
 
 		public IEnumerable<DrugUnitDTO> GetSomeDrugUnits(int first, int count)
 		{
-			return drugUnitRepository.GetQueryableAll().Where(t=>t.DepotId.HasValue).OrderBy(t => t.DepotId).Skip(first).Take(count).ToList().Select(a => Mapper.Map<DrugUnit, DrugUnitDTO>(a)).ToList();
+			return depotRepository.GetSomeDrugUnits(first, count).ToList();
 		}
 
 

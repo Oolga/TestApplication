@@ -1,5 +1,4 @@
-﻿using iTechArt.TestApplication.Services.Domain;
-using iTechArt.TestApplication.Services.Interfaces;
+﻿using iTechArt.TestApplication.Services.Interfaces;
 using iTechArt.TestApplication.Web.ViewModels;
 using Newtonsoft.Json;
 using System;
@@ -28,7 +27,7 @@ namespace Test_application_iTechArt.Controllers
 			}
 			catch (Exception ex)
 			{
-				return View("/Home/Error", new HandleErrorInfo(ex, "Weight", "Weight"));
+				return View("../Home/Error", new HandleErrorInfo(ex, "Weight", "Weight"));
 			}
 		}
 		[HttpGet]
@@ -53,9 +52,6 @@ namespace Test_application_iTechArt.Controllers
 					MaxJsonLength = Int32.MaxValue
 				};
 
-
-
-				//return PartialView(model);
 			}
 			catch (Exception ex)
 			{

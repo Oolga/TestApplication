@@ -1,11 +1,11 @@
 namespace iTechArt.TestApplication.DAL
 {
 	using EF;
-	using Mapping;
 	using System;
 	using System.Collections.Generic;
 	using System.Data;
 	using System.Data.Entity;
+	using System.Data.Entity.Core.Objects;
 	using System.Data.Entity.Infrastructure;
 	using System.Data.Entity.ModelConfiguration;
 	using System.Linq;
@@ -46,13 +46,28 @@ namespace iTechArt.TestApplication.DAL
 				modelBuilder.Configurations.Add(configurationInstance);
 			}
 
-
 			base.OnModelCreating(modelBuilder);
 		}
 
+
+
+
 		#endregion
 
+		public virtual ObjectResult<DrugUnit> GetSomeDrugUnits(int first, int count)
+		{
+			//System.Data.SqlClient.SqlParameter firstParam = new System.Data.SqlClient.SqlParameter("@first", 0);
+			//firstParam.SqlDbType = SqlDbType.Int;
 
+			//System.Data.SqlClient.SqlParameter countParam = new System.Data.SqlClient.SqlParameter("@count", 10);
+			//_context.Database.
+			//var v = _context.Database.SqlQuery<DrugUnit>("select * from dbo.GetSomeDrugUnits(@first,@count)", firstParam, countParam);
+
+			var firstParam = new ObjectParameter("first", 0);
+			var countParam = new ObjectParameter("count", 10);
+
+			return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<DrugUnit>("GetSomeDrugUnits",firstParam,countParam); //drugUnitRepository.GetQueryableAll().Where(t => t.DepotId.HasValue).OrderBy(t => t.DepotId).Skip(first).Take(count).ToList().Select(a => Mapper.Map<DrugUnit, DrugUnitDTO>(a)).ToList();
+		}
 	}
 
 }

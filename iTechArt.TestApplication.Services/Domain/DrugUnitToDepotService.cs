@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using iTechArt.TestApplication.DAL.EF;
 using iTechArt.TestApplication.DAL.Interfaces;
-using iTechArt.TestApplication.DAL;
 using System.Linq;
 using iTechArt.TestApplication.Services.Interfaces;
 using iTechArt.TestApplication.DTO.Models;
