@@ -17,9 +17,14 @@ namespace iTechArt.TestApplication.WebService.Controllers
 		IDrugUnitToDepotService unitToDepotService=new DrugUnitToDepotService(new DepotRepository(),new DrugUnitRepository());
 
 		[HttpPost]
-		public void PostDrugUnitToDepot(JObject param)
+		public void PostDrugUnitToDepot([FromBody]JObject param )
 		{
-			unitToDepotService.UpdateUnitByDepotId(1,2);//drugUnitId, depotId);
+
+			var drugUnitId = param.GetValue("drugUnitId").Value<int>(); 
+
+			var depotId = param.GetValue("depotId").Value<int>();
+
+			unitToDepotService.UpdateUnitByDepotId(drugUnitId, depotId);
 		}
 		public IEnumerable<string> Get()
         {
@@ -33,14 +38,14 @@ namespace iTechArt.TestApplication.WebService.Controllers
         }
 
         // POST: api/DrugUnitToDepot
-        public void Post([FromBody]string value)
-        {
-        }
+        //public void Post([FromBody]string value)
+        //{
+        //}
 
         // PUT: api/DrugUnitToDepot/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
+        //public void Put(int id, [FromBody]string value)
+        //{
+        //}
 
         // DELETE: api/DrugUnitToDepot/5
         public void Delete(int id)
